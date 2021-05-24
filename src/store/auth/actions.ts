@@ -1,28 +1,17 @@
-// @ts-nocheck
-// others
-import { TFetchWords } from './types';
-
 // store
 import { AuthActionsType } from './actionsType';
-import { TAddNewWord, TAddNewCategory, TLoginSuccess } from './types';
+import { TLogin, TLoginSuccess, TLoginError } from './types';
 
-export const loginAction = (payload: Array<TFetchWords>): TLoginSuccess => ({
+export const loginAction = (payload: string): TLogin => ({
   type: AuthActionsType.login,
   payload,
 });
 
-export const loginActionSuccess = (payload: {
-  categoryIndex: number;
-  words: Array<TAddNewWord>;
-}): TAddNewWord => ({
+export const loginActionSuccess = (): TLoginSuccess => ({
   type: AuthActionsType.loginSuccess,
-  payload,
 });
 
-export const loginActionError = (payload: {
-  name: string;
-  words: Array<TAddNewCategory>;
-}): TAddNewWord => ({
+export const loginActionError = (payload: string): TLoginError => ({
   type: AuthActionsType.loginError,
   payload,
 });

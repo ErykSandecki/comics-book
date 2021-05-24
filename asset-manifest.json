@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/gentleman-messenger/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/gentleman-messenger/static/js/main.ba30e84d.chunk.js",
-    "main.js.map": "/gentleman-messenger/static/js/main.ba30e84d.chunk.js.map",
-    "runtime-main.js": "/gentleman-messenger/static/js/runtime-main.3ca84353.js",
-    "runtime-main.js.map": "/gentleman-messenger/static/js/runtime-main.3ca84353.js.map",
-    "static/js/2.531f0216.chunk.js": "/gentleman-messenger/static/js/2.531f0216.chunk.js",
-    "static/js/2.531f0216.chunk.js.map": "/gentleman-messenger/static/js/2.531f0216.chunk.js.map",
-    "index.html": "/gentleman-messenger/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/gentleman-messenger/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.531f0216.chunk.js.LICENSE.txt": "/gentleman-messenger/static/js/2.531f0216.chunk.js.LICENSE.txt"
+    "main.css": "/comics-book/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/comics-book/static/js/main.46858a96.chunk.js",
+    "main.js.map": "/comics-book/static/js/main.46858a96.chunk.js.map",
+    "runtime-main.js": "/comics-book/static/js/runtime-main.fdaa2f7e.js",
+    "runtime-main.js.map": "/comics-book/static/js/runtime-main.fdaa2f7e.js.map",
+    "static/js/2.167e102b.chunk.js": "/comics-book/static/js/2.167e102b.chunk.js",
+    "static/js/2.167e102b.chunk.js.map": "/comics-book/static/js/2.167e102b.chunk.js.map",
+    "index.html": "/comics-book/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/comics-book/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.167e102b.chunk.js.LICENSE.txt": "/comics-book/static/js/2.167e102b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3ca84353.js",
-    "static/js/2.531f0216.chunk.js",
+    "static/js/runtime-main.fdaa2f7e.js",
+    "static/js/2.167e102b.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.ba30e84d.chunk.js"
+    "static/js/main.46858a96.chunk.js"
   ]
 }

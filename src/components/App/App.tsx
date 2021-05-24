@@ -27,7 +27,7 @@ const App: FunctionComponent<{}> = () => {
   }
 
   if (errorMessage) {
-    <ErrorContainer />;
+    return <ErrorContainer />;
   }
 
   return <div className="App"></div>;

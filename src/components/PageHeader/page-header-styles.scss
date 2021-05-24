@@ -1,0 +1,39 @@
+@import '../../styles//picker.scss';
+
+.PageHeader {
+  align-items: center;
+  border-bottom: 1px solid #3b3b3b;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 25px;
+
+  &__channel-picker {
+    background: radial-gradient(
+      67.92% 67.92% at 78.36% 26.42%,
+      #0f63c3 0%,
+      #13b3a9 100%
+    );
+    margin-right: 10px;
+
+    @include picker();
+  }
+
+  &__left-column {
+    align-items: center;
+    display: flex;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+  }
+
+  &__users {
+    color: rgb(204, 204, 204);
+    font-size: 12px;
+  }
+
+  &__hamburger-menu {
+    height: 20px;
+  }
+}

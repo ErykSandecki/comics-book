@@ -1,10 +1,34 @@
 import { FunctionComponent } from 'react';
 
-// styles
-import './error-container-styles.scss';
+// others
+import HamburgerMenu from '../../assets/images/icons/hamburger-menu.svg';
 
-const ErrorContainer: FunctionComponent<{}> = () => {
-  return <header className="PageHeader"></header>;
+// styles
+import './page-header-styles.scss';
+
+const PageHeader: FunctionComponent<{}> = () => {
+  return (
+    <header className="PageHeader">
+      {/* LEFT COLUMN */}
+      <div className="PageHeader__left-column">
+        {/* PICKER */}
+        <div className="PageHeader__channel-picker">ME</div>
+
+        {/* DETAILS */}
+        <div>
+          <p className="PageHeader__title">Gentleman App - Meetings</p>
+          <p className="PageHeader__users">2 Brothers-in-law online</p>
+        </div>
+      </div>
+
+      {/* RIGHT COLUMN */}
+      <img
+        alt="hamburger-menu"
+        className="PageHeader__hamburger-menu"
+        src={HamburgerMenu}
+      />
+    </header>
+  );
 };
 
-export default ErrorContainer;
+export default PageHeader;

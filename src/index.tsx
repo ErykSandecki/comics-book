@@ -10,7 +10,7 @@ import Firebase from './components/Firebase/Firebase';
 import configureStore from './store/configureStore';
 
 // styles
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>

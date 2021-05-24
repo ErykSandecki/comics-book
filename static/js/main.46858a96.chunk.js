@@ -1,2 +1,0 @@
-(this["webpackJsonpcomics-book"]=this["webpackJsonpcomics-book"]||[]).push([[0],{10:function(c,t,e){"use strict";e.r(t);var n=e(0),o=e.n(n),s=e(3),i=e.n(s),r=(e(8),e(1));var a=function(){return Object(r.jsx)("div",{className:"App"})};i.a.render(Object(r.jsx)(o.a.StrictMode,{children:Object(r.jsx)(a,{})}),document.getElementById("root"))},8:function(c,t,e){}},[[10,1,2]]]);
-//# sourceMappingURL=main.46858a96.chunk.js.map

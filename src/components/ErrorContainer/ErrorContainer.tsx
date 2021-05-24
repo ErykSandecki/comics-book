@@ -4,17 +4,17 @@ import { FunctionComponent } from 'react';
 import Background from '../../assets/images/backgrounds/error.svg';
 
 // styles
-import './error-container.scss';
+import './error-container-styles.scss';
 
 const ErrorContainer: FunctionComponent<{}> = () => {
   return (
-    <div className="Error">
+    <section className="Error">
       <img
         alt="background-error"
         className="Error__background"
         src={Background}
       />
-    </div>
+    </section>
   );
 };
 

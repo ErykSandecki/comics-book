@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // components
 import ErrorContainer from '../ErrorContainer/ErrorContainer';
+import Main from '../Main/Main';
 
 // store
 import {
@@ -16,21 +17,25 @@ const App: FunctionComponent<{}> = () => {
   const dispatch = useDispatch();
   const errorMessage = useSelector(errorMessageSelector);
 
-  useEffect(() => {
-    const password = prompt('Please enter a password:');
-    dispatch(loginAction(password as string));
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   const password = prompt('Please enter a password:');
+  //   dispatch(loginAction(password as string));
+  //   // eslint-disable-next-line
+  // }, []);
 
-  if (isPending) {
-    return null;
-  }
+  // if (isPending) {
+  //   return null;
+  // }
 
-  if (errorMessage) {
-    return <ErrorContainer />;
-  }
+  // if (errorMessage) {
+  //   return <ErrorContainer />;
+  // }
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Main />
+    </div>
+  );
 };
 
 export default App;

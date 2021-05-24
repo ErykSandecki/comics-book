@@ -19,7 +19,7 @@
     @include picker();
   }
 
-  &__left-column {
+  &__content {
     align-items: center;
     display: flex;
   }
@@ -34,6 +34,7 @@
   }
 
   &__hamburger-menu {
+    cursor: pointer;
     height: 20px;
   }
 }

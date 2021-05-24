@@ -1,4 +1,7 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
+
+// components
+import NavMenu from '../NavMenu/NavMenu';
 
 // others
 import HamburgerMenu from '../../assets/images/icons/hamburger-menu.svg';
@@ -7,10 +10,12 @@ import HamburgerMenu from '../../assets/images/icons/hamburger-menu.svg';
 import './page-header-styles.scss';
 
 const PageHeader: FunctionComponent<{}> = () => {
+  const [visible, setVisible] = useState(false);
+
   return (
     <header className="PageHeader">
       {/* LEFT COLUMN */}
-      <div className="PageHeader__left-column">
+      <div className="PageHeader__content">
         {/* PICKER */}
         <div className="PageHeader__channel-picker">ME</div>
 
@@ -25,8 +30,12 @@ const PageHeader: FunctionComponent<{}> = () => {
       <img
         alt="hamburger-menu"
         className="PageHeader__hamburger-menu"
+        onClick={() => setVisible(true)}
         src={HamburgerMenu}
       />
+
+      {/* Nav Left Menu */}
+      <NavMenu visible={visible} setVisible={setVisible} />
     </header>
   );
 };

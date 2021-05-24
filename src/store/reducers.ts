@@ -1,7 +1,10 @@
 // @ts-nocheck
 import { combineReducers } from 'redux';
 
-const reducers = {  };
+// store
+import auth from './auth/reducer';
+
+const reducers = { auth };
 
 const createRootReducer = () =>
   combineReducers({

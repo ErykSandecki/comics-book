@@ -16,10 +16,12 @@ const ProfilePickerSection: FunctionComponent<{}> = () => {
   return (
     <section className="ProfilePickerSection">
       {mode === Mode.listProfiles ? (
+        // LIST
         <ProfilePickerList clickHandler={(mode: Mode) => setMode(mode)} />
       ) : (
+        // CRATE PROFILE FORM
         <>
-          <h2>Create Profile:</h2>
+          <h2 className="ProfilePickerSection__title">Create Profile:</h2>
           <CreateProfileForm clickHandler={() => setMode(Mode.listProfiles)} />
         </>
       )}

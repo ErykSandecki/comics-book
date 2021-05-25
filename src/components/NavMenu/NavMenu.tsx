@@ -20,6 +20,11 @@ const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
       onClick={onClickHandler}
     >
       <div
+        className={`NavMenu__background ${
+          visible && 'NavMenu__background--visible'
+        }`}
+      />
+      <div
         className={`NavMenu__container ${
           visible && 'NavMenu__container--visible'
         }`}

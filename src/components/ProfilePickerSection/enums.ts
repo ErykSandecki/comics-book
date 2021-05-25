@@ -1,4 +1,4 @@
 export enum Mode {
-  addProfile = 'add-profile',
-  listProfiles = 'list-profiles',
+  createProfile = 'createProfile',
+  listProfiles = 'listProfiles',
 }

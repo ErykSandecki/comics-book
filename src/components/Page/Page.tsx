@@ -21,9 +21,9 @@ const Page: FunctionComponent<{}> = () => {
     return <PageLoader appDataLoaded={appDataLoaded} />;
   }
 
-  if (!profileId) {
-    return <ProfilePicker />;
-  }
+  // if (!profileId) {
+  //   return <ProfilePicker />;
+  // }
 
   return (
     <div className="Page">

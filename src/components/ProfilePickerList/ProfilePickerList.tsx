@@ -24,7 +24,7 @@ const ProfilePickerList: FunctionComponent<TProps> = ({ clickHandler }) => {
 
       {/* PICKERS */}
       <div className="ProfilePickerList__pickers">
-        <ProfilePicker clickHandler={() => clickHandler(Mode.addProfile)} />
+        <ProfilePicker clickHandler={() => clickHandler(Mode.createProfile)} />
       </div>
     </section>
   );

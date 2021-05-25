@@ -1,6 +1,7 @@
 import { FunctionComponent, useState } from 'react';
 
 // components
+import CreateProfileForm from '../CreateProfileForm/CreateProfileForm';
 import ProfilePickerList from '../ProfilePickerList/ProfilePickerList';
 
 // others
@@ -10,14 +11,17 @@ import { Mode } from './enums';
 import './profile-picker-section-styles.scss';
 
 const ProfilePickerSection: FunctionComponent<{}> = () => {
-  const [mode, setMode] = useState(Mode.listProfiles);
+  const [mode, setMode] = useState(Mode.createProfile);
 
   return (
     <section className="ProfilePickerSection">
       {mode === Mode.listProfiles ? (
         <ProfilePickerList clickHandler={(mode: Mode) => setMode(mode)} />
       ) : (
-        <div>Create</div>
+        <>
+          <h2>Create Profile:</h2>
+          <CreateProfileForm clickHandler={() => setMode(Mode.listProfiles)} />
+        </>
       )}
     </section>
   );

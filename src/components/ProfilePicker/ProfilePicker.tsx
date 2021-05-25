@@ -21,7 +21,7 @@ const ProfilePicker: FunctionComponent<TProps> = ({
       onClick={clickHandler}
     >
       {/* TITLE */}
-      <p className="ProfilePicker__title">Add</p>
+      <p className="ProfilePicker__title">Create:</p>
 
       {/* CIRCLE */}
       <div className="ProfilePicker__button">

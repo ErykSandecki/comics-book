@@ -1,7 +1,14 @@
 .ProfilePicker {
+  box-sizing: border-box;
   color: #a8a9ad;
+  cursor: pointer;
   height: 200px;
+  transition: 300ms ease-in-out;
   width: 150px;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 
   &__title {
     font-weight: 600;
@@ -13,6 +20,7 @@
     align-items: center;
     background-color: #a8a9ad;
     border-radius: 50%;
+
     display: flex;
     justify-content: center;
     margin: 35px auto;

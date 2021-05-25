@@ -17,9 +17,9 @@ const ProfilePickerList: FunctionComponent<TProps> = ({ clickHandler }) => {
   return (
     <section className="ProfilePickerList">
       {/* CONTENT */}
-      <h1 className="ProfilePickerList__title">Choose a user:</h1>
+      <h1 className="ProfilePickerList__title">Choose a brother-in-law:</h1>
       <p className="ProfilePickerList__description">
-        Select a user to start a conversation with your brother-in-law.
+        Select a profile to start a conversation with your brother-in-law.
       </p>
 
       {/* PICKERS */}

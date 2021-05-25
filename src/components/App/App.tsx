@@ -20,6 +20,7 @@ const App: FunctionComponent<{}> = () => {
 
   // useEffect(() => {
   //   const password = prompt('Please enter a password:');
+  //   indexedDB.deleteDatabase('firebaseLocalStorageDb');
   //   dispatch(loginAction(password as string));
   //   // eslint-disable-next-line
   // }, []);

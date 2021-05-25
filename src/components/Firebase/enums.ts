@@ -1,1 +1,3 @@
-export enum DatabaseColumns {}
+export enum DatabaseColumns {
+    profiles = 'profiles'
+}

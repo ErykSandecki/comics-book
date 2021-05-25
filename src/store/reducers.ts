@@ -3,8 +3,9 @@ import { combineReducers } from 'redux';
 
 // store
 import auth from './auth/reducer';
+import profiles from './profiles/reducer';
 
-const reducers = { auth };
+const reducers = { auth, profiles };
 
 const createRootReducer = () =>
   combineReducers({

@@ -14,7 +14,7 @@ const databaseSuccessHandler = (
   actions: (data: any) => void = null
 ): void => {
   const values = response.val();
-  actions(getData(values));
+  actions(getData(values || {}));
 };
 
 export default databaseSuccessHandler;

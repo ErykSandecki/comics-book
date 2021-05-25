@@ -4,6 +4,7 @@ import { AuthActionsType } from './actionsType';
 export type TAuthState = {
   error: string;
   isPending: boolean;
+  profileId: string;
 };
 
 export type TLogin = {
@@ -13,6 +14,7 @@ export type TLogin = {
 
 export type TLoginSuccess = {
   type: typeof AuthActionsType.loginSuccess;
+  payload: string;
 };
 
 export type TLoginError = {

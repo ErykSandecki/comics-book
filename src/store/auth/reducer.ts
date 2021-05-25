@@ -1,6 +1,6 @@
 // @ts-nocheck
 // others
-import { TLoginError } from './types';
+import { TLoginError, TLoginSuccess } from './types';
 
 // store
 import { AuthActionsType } from './actionsType';
@@ -10,11 +10,16 @@ import { TAuthState } from './types';
 const initialState: TAuthState = {
   error: '',
   isPending: true,
+  profileId: '',
 };
 
-const loginSuccess = (state: TAuthState): TAuthState => ({
+const loginSuccess = (
+  state: TAuthState,
+  { payload: profileId }: TLoginSuccess
+): TAuthState => ({
   ...state,
   isPending: false,
+  profileId,
 });
 
 const loginError = (

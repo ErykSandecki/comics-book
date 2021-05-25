@@ -4,9 +4,7 @@ import { all, AllEffect, ForkEffect, takeEvery } from 'redux-saga/effects';
 import { login } from './saga';
 import { AuthActionsType } from './actionsType';
 
-export function* watchAuth(): Generator<
-  AllEffect<ForkEffect<any>>
-> {
+export function* watchAuth(): Generator<AllEffect<ForkEffect<any>>> {
   yield all([
     // @ts-ignore
     takeEvery(AuthActionsType.login, login),

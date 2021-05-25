@@ -7,8 +7,9 @@ export const loginAction = (payload: string): TLogin => ({
   payload,
 });
 
-export const loginActionSuccess = (): TLoginSuccess => ({
+export const loginActionSuccess = (payload: string): TLoginSuccess => ({
   type: AuthActionsType.loginSuccess,
+  payload,
 });
 
 export const loginActionError = (payload: string): TLoginError => ({

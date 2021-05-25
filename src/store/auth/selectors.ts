@@ -10,12 +10,13 @@ import { TLocationState } from './types';
 export const authSelector: Selector<TMainState, TLocationState> =
   getFp(REDUCER_KEY);
 
-  export const errorMessageSelector: Selector<TMainState, boolean> = createSelector(
-    authSelector,
-    getFp('error')
-  );
+export const errorMessageSelector: Selector<TMainState, boolean> =
+  createSelector(authSelector, getFp('error'));
 
 export const isPendingSelector: Selector<TMainState, boolean> = createSelector(
   authSelector,
   getFp('isPending')
 );
+
+export const profileIdSelector: Selector<TMainState, boolean> =
+  createSelector(authSelector, getFp('profileId'));

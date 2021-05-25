@@ -9,6 +9,7 @@ import Page from '../Page/Page';
 import {
   errorMessageSelector,
   isPendingSelector,
+  profileIdSelector,
 } from '../../store/auth/selectors';
 import { loginAction } from '../../store/auth/actions';
 
@@ -31,11 +32,7 @@ const App: FunctionComponent<{}> = () => {
   //   return <ErrorContainer />;
   // }
 
-  return (
-    <div className="App">
-      <Page />
-    </div>
-  );
+  return <Page />;
 };
 
 export default App;

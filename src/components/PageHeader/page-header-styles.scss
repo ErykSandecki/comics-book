@@ -1,4 +1,4 @@
-@import '../../styles//picker.scss';
+@import '../../styles//channel-picker.scss';
 
 .PageHeader {
   align-items: center;
@@ -16,7 +16,7 @@
     );
     margin-right: 10px;
 
-    @include picker();
+    @include channel-picker();
   }
 
   &__content {

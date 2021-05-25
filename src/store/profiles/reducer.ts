@@ -22,9 +22,7 @@ const fetchProfilesSuccess = (
   data,
 });
 
-const fetchProfilesError = (
-  state: TAuthState,
-): TAuthState => ({
+const fetchProfilesError = (state: TAuthState): TAuthState => ({
   ...state,
   isPending: false,
 });

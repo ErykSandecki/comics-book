@@ -9,7 +9,6 @@ import Page from '../Page/Page';
 import {
   errorMessageSelector,
   isPendingSelector,
-  profileIdSelector,
 } from '../../store/auth/selectors';
 import { loginAction } from '../../store/auth/actions';
 
@@ -18,20 +17,20 @@ const App: FunctionComponent<{}> = () => {
   const dispatch = useDispatch();
   const errorMessage = useSelector(errorMessageSelector);
 
-  // useEffect(() => {
-  //   const password = prompt('Please enter a password:');
-  //   indexedDB.deleteDatabase('firebaseLocalStorageDb');
-  //   dispatch(loginAction(password as string));
-  //   // eslint-disable-next-line
-  // }, []);
+  useEffect(() => {
+    const password = prompt('Please enter a password:');
+    indexedDB.deleteDatabase('firebaseLocalStorageDb');
+    dispatch(loginAction(password as string));
+    // eslint-disable-next-line
+  }, []);
 
-  // if (isPending) {
-  //   return null;
-  // }
+  if (isPending) {
+    return null;
+  }
 
-  // if (errorMessage) {
-  //   return <ErrorContainer />;
-  // }
+  if (errorMessage) {
+    return <ErrorContainer />;
+  }
 
   return <Page />;
 };

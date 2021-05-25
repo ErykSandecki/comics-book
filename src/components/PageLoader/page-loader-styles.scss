@@ -1,0 +1,92 @@
+$animationDuration: 1.2s;
+$color: #ffffff !default;
+$circleCount: 12;
+$size: 45px !default;
+
+@keyframes backInDown {
+  0% {
+    transform: translateY(-1200px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.backInDown {
+  animation-name: backInDown;
+}
+
+@keyframes circleDelay {
+  0%,
+  39%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+.PageLoader {
+  animation: 1s cubic-bezier(0.39, 0.575, 0.565, 1) backInDown;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+
+  &__title {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  &__spinner {
+    height: $size;
+    margin-top: 25px;
+    position: relative;
+    width: $size;
+  }
+
+  &__circle {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  &__circle:before {
+    animation: circleDelay $animationDuration infinite ease-in-out both;
+    background-color: $color;
+    border-radius: 100%;
+    content: '';
+    display: block;
+    height: 15%;
+    margin: 0 auto;
+    width: 15%;
+  }
+
+  @for $i from 2 through $circleCount {
+    &__circle--#{$i} {
+      transform: rotate((360deg / $circleCount * ($i - 1)));
+    }
+  }
+
+  @for $i from 2 through $circleCount {
+    &__circle--#{$i}:before {
+      animation-delay: (
+        -$animationDuration + $animationDuration / $circleCount * ($i - 1)
+      );
+    }
+  }
+}

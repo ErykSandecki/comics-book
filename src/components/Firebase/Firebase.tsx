@@ -29,8 +29,10 @@ const Firebase: FunctionComponent<{}> = () => {
       dispatch(fetchProfilesSuccess(payload));
     };
 
-    if (!isAuthenticated) {
-      databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
+    if (isAuthenticated) {
+      setTimeout(() => {
+        databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
+      }, 2000);
     }
     // eslint-disable-next-line
   }, [isAuthenticated]);

@@ -3,9 +3,11 @@ import { TProfile } from './types';
 
 // store
 import { ProfilesActionsType } from './actionsType';
-import {TFetchProfilesSuccess, TFetchProfilesError } from './types';
+import { TFetchProfilesSuccess, TFetchProfilesError } from './types';
 
-export const fetchProfilesSuccess = (payload: Array<TProfile>): TFetchProfilesSuccess => ({
+export const fetchProfilesSuccess = (
+  payload: Array<TProfile>
+): TFetchProfilesSuccess => ({
   type: ProfilesActionsType.fetchProfilesSuccess,
   payload,
 });

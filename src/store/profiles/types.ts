@@ -8,10 +8,11 @@ export type TProfilesState = {
 };
 
 export type TProfile = {
+  active: boolean;
   avatarUrl?: string;
   name: string;
   profileId: string;
-}
+};
 
 export type TFetchProfilesSuccess = {
   type: typeof ProfilesActionsType.fetchProfilesSuccess;

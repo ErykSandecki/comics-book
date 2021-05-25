@@ -1,7 +1,6 @@
 import { FunctionComponent, useState } from 'react';
 
 // components
-import ProfilePicker from '../ProfilePicker/ProfilePicker';
 import ProfilePickerList from '../ProfilePickerList/ProfilePickerList';
 
 // others

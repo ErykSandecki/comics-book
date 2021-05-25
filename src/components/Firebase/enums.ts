@@ -1,3 +1,3 @@
 export enum DatabaseColumns {
-    profiles = 'profiles'
+  profiles = 'profiles',
 }

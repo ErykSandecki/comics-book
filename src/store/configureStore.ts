@@ -12,7 +12,7 @@ import thunk from 'redux-thunk';
 
 // store
 import reducers from './reducers';
-import sagaMiddlewareRuns from './sagas';
+import sagaMiddlewareRuns from './watchers';
 
 const sagaMiddleware = createSagaMiddleware();
 

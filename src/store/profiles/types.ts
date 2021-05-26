@@ -1,3 +1,7 @@
+// others
+import { TImageData } from './../../types';
+import { TReturnablePayload } from './../common/types';
+
 // store
 import { ProfilesActionsType } from './actionsType';
 
@@ -9,14 +13,14 @@ export type TProfilesState = {
 
 export type TProfileFormData = {
   name: string;
-  src: string;
+  imageData: TImageData;
 };
 
 export type TProfile = {
   active: boolean;
   name: string;
   profileId: string;
-  src?: string;
+  src: string;
 };
 
 export type TCreateProfile = {
@@ -31,4 +35,9 @@ export type TFetchProfilesSuccess = {
 
 export type TFetchProfilesError = {
   type: typeof ProfilesActionsType.fetchProfilesError;
+};
+
+export type TUploadImageFinished = {
+  type: typeof ProfilesActionsType.uploadImageFinished;
+  payload: TReturnablePayload;
 };

@@ -15,3 +15,8 @@ export type TAnyAction = {
   type: string;
   payload?: any;
 };
+
+export type TImageData = {
+  file: Blob;
+  src: string;
+};

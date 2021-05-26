@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { FunctionComponent, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 // others
 import BackIcon from '../../assets/images/icons/back.svg';
 import ButtonPicture from '../../assets/images/icons/button-picture.svg';
+import { TImageData } from '../../types';
 import { TProfileFormData } from '../../store/profiles/types';
 
 // services
@@ -21,7 +23,7 @@ import './profile-form-styles.scss';
 type TProps = {
   clickHandler: () => void;
   name?: string;
-  src?: string;
+  imageData?: TImageData;
   submitHandler: (formData: TProfileFormData) => void;
   title: string;
 };
@@ -29,21 +31,20 @@ type TProps = {
 const ProfileForm: FunctionComponent<TProps> = ({
   clickHandler,
   name: initialName = '',
-  src: initalSrc = '',
+  imageData: initialImageData = null,
   submitHandler,
   title,
 }) => {
   const isPending = useSelector(isPendingSelector);
   const inputRef = useRef(null);
-  const [src, setSrc] = useState(initalSrc);
+  const [imageData, setImageData] = useState(initialImageData);
   const [name, setName] = useState(initialName);
 
   const onSubmitHandler = (event: Event) => {
     event.preventDefault();
 
-    if (name && src) {
-      // @ts-ignore
-      submitHandler({ name, src });
+    if (imageData) {
+      submitHandler({ name, imageData });
     }
   };
 
@@ -65,12 +66,16 @@ const ProfileForm: FunctionComponent<TProps> = ({
         {/* AVATAR */}
         <div
           className={`ProfileForm__avatar ${
-            src ? 'ProfileForm__avatar--selected' : ''
+            imageData ? 'ProfileForm__avatar--selected' : ''
           }`}
         >
-          {src ? (
+          {imageData ? (
             // @ts-ignore
-            <img alt="avatar" className="ProfileForm__image" src={src} />
+            <img
+              alt="avatar"
+              className="ProfileForm__image"
+              src={imageData.src}
+            />
           ) : (
             <p className="ProfileForm__empty-picture">Please select picture:</p>
           )}
@@ -86,7 +91,7 @@ const ProfileForm: FunctionComponent<TProps> = ({
           <input
             className="ProfileForm__input-file"
             // @ts-ignore
-            onChange={(event: Event) => loadImage(event, setSrc)}
+            onChange={(event: Event) => loadImage(event, setImageData)}
             ref={inputRef}
             type="file"
           />
@@ -103,7 +108,7 @@ const ProfileForm: FunctionComponent<TProps> = ({
         <Button
           className="ProfileForm__submit-button"
           color="primary"
-          disabled={isPending}
+          // disabled={isPending}
           size="large"
           type="submit"
           variant="contained"

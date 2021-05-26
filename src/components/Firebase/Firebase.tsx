@@ -2,6 +2,7 @@
 import { FunctionComponent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import firebase from 'firebase';
+import ReduxSagaFirebase from 'redux-saga-firebase';
 
 // others
 import { config } from './constants';

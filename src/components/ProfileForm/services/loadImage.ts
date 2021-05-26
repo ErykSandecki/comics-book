@@ -3,16 +3,19 @@
 
 const loadImage = (
   event: Event,
-  setSrc: (file: string | ArrayBuffer | null) => void
+  setImageData: (file: string | ArrayBuffer | null) => void
 ) => {
   const reader = new FileReader();
-  const selectedFile = event.target.files;
+  const { files } = event.target;
 
   reader.onload = (e) => {
-    setSrc(e.target.result);
+    setImageData({
+      file: files[0],
+      src: e.target.result,
+    });
   };
 
-  reader.readAsDataURL(selectedFile[0]);
+  reader.readAsDataURL(files[0]);
 };
 
 export default loadImage;

@@ -1,5 +1,6 @@
-import { useEffect, FunctionComponent } from 'react';
+import { useEffect, useMemo, FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 // components
 import ErrorPage from '../ErrorPage/ErrorPage';
@@ -17,6 +18,16 @@ const App: FunctionComponent<{}> = () => {
   const dispatch = useDispatch();
   const errorMessage = useSelector(errorMessageSelector);
 
+  const theme = useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: 'dark',
+        },
+      }),
+    []
+  );
+
   // useEffect(() => {
   //   const password = prompt('Please enter a password:');
   //   indexedDB.deleteDatabase('firebaseLocalStorageDb');
@@ -32,7 +43,11 @@ const App: FunctionComponent<{}> = () => {
   //   return <ErrorContainer />;
   // }
 
-  return <Page />;
+  return (
+    <ThemeProvider theme={theme}>
+      <Page />;
+    </ThemeProvider>
+  );
 };
 
 export default App;

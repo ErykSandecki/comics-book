@@ -7,11 +7,16 @@ export type TProfilesState = {
   seletedProfileId: string;
 };
 
+export type TProfileFormData = {
+  name: string;
+  src: string;
+}
+
 export type TProfile = {
   active: boolean;
-  avatarUrl?: string;
   name: string;
   profileId: string;
+  src?: string;
 };
 
 export type TFetchProfilesSuccess = {

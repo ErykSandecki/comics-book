@@ -2,6 +2,10 @@
 
 .ProfileForm {
   &__form-wrapper {
+    margin: 0 auto;
+    max-width: 450px;
+    text-align: center;
+
     @include entry-animation;
   }
 
@@ -29,7 +33,7 @@
     display: flex;
     height: 125px;
     justify-content: center;
-    margin: 50px auto;
+    margin: 50px auto 25px;
     position: relative;
     width: 125px;
 
@@ -46,6 +50,7 @@
 
   &__empty-picture {
     font-size: 12px;
+    font-weight: 600;
     padding: 15px;
     text-align: center;
   }
@@ -65,5 +70,15 @@
 
   &__input-file {
     display: none;
+  }
+
+  &__input-name {
+    width: 80%;
+  }
+
+  &__submit-button {
+    background-color: #007eff !important;
+    margin-top: 50px !important;
+    width: 80%;
   }
 }

@@ -1,23 +1,24 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 
 // others
 import BackIcon from '../../assets/images/icons/back.svg';
 import ButtonPicture from '../../assets/images/icons/button-picture.svg';
+
+// services
+import loadImage from './services/loadImage';
 
 // styles
 import './profile-form-styles.scss';
 
 type TProps = {
   clickHandler: () => void;
-  src?: string;
   title: string;
 };
 
-const ProfileForm: FunctionComponent<TProps> = ({
-  clickHandler,
-  src,
-  title,
-}) => {
+const ProfileForm: FunctionComponent<TProps> = ({ clickHandler, title }) => {
+  const inputRef = useRef(null);
+  const [src, setSrc] = useState(null);
+
   return (
     <div className="ProfileForm__form-wrapper">
       <h2 className="ProfileForm__title">
@@ -32,9 +33,14 @@ const ProfileForm: FunctionComponent<TProps> = ({
 
       {/* FORM */}
       <form className="ProfileForm">
-        <div className="ProfileForm__avatar">
-          {/* AVATAR */}
+        {/* AVATAR */}
+        <div
+          className={`ProfileForm__avatar ${
+            src ? 'ProfileForm__avatar--selected' : ''
+          }`}
+        >
           {src ? (
+            // @ts-ignore
             <img alt="avatar" className="ProfileForm__image" src={src} />
           ) : (
             <p className="ProfileForm__empty-picture">Please select picture:</p>
@@ -42,11 +48,22 @@ const ProfileForm: FunctionComponent<TProps> = ({
 
           {/* BUTTON */}
           <img
-            alt="button-picture"
+            alt="button-icon"
             className="ProfileForm__button-picture"
+            // @ts-ignore
+            onClick={() => inputRef.current.click()}
             src={ButtonPicture}
           />
+          <input
+            className="ProfileForm__input-file"
+            // @ts-ignore
+            onChange={(event: Event) => loadImage(event, setSrc)}
+            ref={inputRef}
+            type="file"
+          />
         </div>
+
+        {/* INPUT NAME */}
       </form>
     </div>
   );

@@ -1,5 +1,7 @@
 // @ts-nocheck
 import getFp from 'lodash/fp/get';
+import isArrayFp from 'lodash/fp/isArray';
+import composeFp from 'lodash/fp/compose';
 import { createSelector, Selector } from 'reselect';
 
 // store
@@ -14,3 +16,6 @@ export const isPendingSelector: Selector<TMainState, boolean> = createSelector(
   profilesSelector,
   getFp('isPending')
 );
+
+export const profilesLoadedSelector: Selector<TMainState, boolean> =
+  createSelector(profilesSelector, composeFp(isArrayFp, getFp('data')));

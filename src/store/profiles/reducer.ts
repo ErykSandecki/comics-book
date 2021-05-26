@@ -1,17 +1,21 @@
 // @ts-nocheck
 // others
-import { TFetchProfilesSuccess } from './types';
+import { TFetchProfilesSuccess, TProfilesState } from './types';
 
 // store
 import { ProfilesActionsType } from './actionsType';
 import { TAnyAction } from '../../types';
-import { TProfilesState } from './types';
 
 const initialState: TProfilesState = {
-  data: [],
+  data: null,
   isPending: true,
   seletedProfileId: '',
 };
+
+const createProfile = (state: TAuthState): TAuthState => ({
+  ...state,
+  isPending: true,
+});
 
 const fetchProfilesSuccess = (
   state: TAuthState,
@@ -32,6 +36,8 @@ const profiles = (
   action: TAnyAction
 ): TAuthState => {
   switch (action.type) {
+    case ProfilesActionsType.createProfile:
+      return createProfile(state, action);
     case ProfilesActionsType.fetchProfilesSuccess:
       return fetchProfilesSuccess(state, action);
     case ProfilesActionsType.fetchProfilesError:

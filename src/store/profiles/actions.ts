@@ -3,7 +3,12 @@ import { TProfile } from './types';
 
 // store
 import { ProfilesActionsType } from './actionsType';
-import { TFetchProfilesSuccess, TFetchProfilesError } from './types';
+import { TCreateProfile, TFetchProfilesSuccess, TFetchProfilesError, TProfileFormData } from './types';
+
+export const createProfile = (payload: TProfileFormData): TCreateProfile => ({
+  type: ProfilesActionsType.createProfile,
+  payload
+});
 
 export const fetchProfilesSuccess = (
   payload: Array<TProfile>

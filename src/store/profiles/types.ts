@@ -10,13 +10,18 @@ export type TProfilesState = {
 export type TProfileFormData = {
   name: string;
   src: string;
-}
+};
 
 export type TProfile = {
   active: boolean;
   name: string;
   profileId: string;
   src?: string;
+};
+
+export type TCreateProfile = {
+  type: typeof ProfilesActionsType.createProfile;
+  payload: TProfileFormData;
 };
 
 export type TFetchProfilesSuccess = {

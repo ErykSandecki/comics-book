@@ -1,7 +1,10 @@
 // @ts-nocheck
 // others
 
-const loadImage = (event: Event, setSrc: (file: string | ArrayBuffer | null) => void) => {
+const loadImage = (
+  event: Event,
+  setSrc: (file: string | ArrayBuffer | null) => void
+) => {
   const reader = new FileReader();
   const selectedFile = event.target.files;
 

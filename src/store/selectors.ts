@@ -8,7 +8,7 @@ import {
   isPendingSelector as isPendingAuthSelector,
   errorMessageSelector,
 } from './auth/selectors';
-import { isPendingSelector as isPendingProfilesSelector } from './profiles/selectors';
+import { profilesLoadedSelector } from './profiles/selectors';
 
 export const isAuthenticatedSelector: Selector<TMainState, boolean> =
   createSelector(
@@ -18,7 +18,4 @@ export const isAuthenticatedSelector: Selector<TMainState, boolean> =
   );
 
 export const appDataLoadedSelector: Selector<TMainState, boolean> =
-  createSelector(
-    isPendingProfilesSelector,
-    (isPendingProfiles) => !isPendingProfiles
-  );
+  createSelector(profilesLoadedSelector, (profilesData) => profilesData);

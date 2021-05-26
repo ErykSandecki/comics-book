@@ -20,19 +20,23 @@ import './profile-form-styles.scss';
 
 type TProps = {
   clickHandler: () => void;
+  name?: string;
+  src?: string;
   submitHandler: (formData: TProfileFormData) => void;
   title: string;
 };
 
 const ProfileForm: FunctionComponent<TProps> = ({
   clickHandler,
+  name: initialName = '',
+  src: initalSrc = '',
   submitHandler,
   title,
 }) => {
   const isPending = useSelector(isPendingSelector);
   const inputRef = useRef(null);
-  const [src, setSrc] = useState(null);
-  const [name, setName] = useState('');
+  const [src, setSrc] = useState(initalSrc);
+  const [name, setName] = useState(initialName);
 
   const onSubmitHandler = (event: Event) => {
     event.preventDefault();

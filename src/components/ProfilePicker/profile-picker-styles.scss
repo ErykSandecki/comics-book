@@ -1,7 +1,6 @@
 .ProfilePicker {
   box-sizing: border-box;
   color: #a8a9ad;
-  cursor: pointer;
   height: 200px;
   transition: 300ms ease-in-out;
   width: 150px;
@@ -20,7 +19,7 @@
     align-items: center;
     background-color: #a8a9ad;
     border-radius: 50%;
-
+    cursor: pointer;
     display: flex;
     justify-content: center;
     margin: 35px auto;

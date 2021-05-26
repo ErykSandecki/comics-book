@@ -2,7 +2,7 @@ import { useEffect, FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // components
-import ErrorContainer from '../ErrorContainer/ErrorContainer';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import Page from '../Page/Page';
 
 // store

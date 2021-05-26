@@ -1,14 +1,11 @@
 import { FunctionComponent } from 'react';
 
-// styles
-import './create-profile-form-styles.scss';
+// components
+import ProfileForm from '../ProfileForm/ProfileForm';
 
-type TProps = {
-  clickHandler: () => void;
-};
-
-const CreateProfileForm: FunctionComponent<TProps> = ({ clickHandler }) => {
-  return <form className="CreateProfileForm"></form>;
+const CreateProfileForm: FunctionComponent = ({ ...restProps }) => {
+  //@ts-ignore
+  return <ProfileForm title="Create Profile:" {...restProps} />;
 };
 
 export default CreateProfileForm;

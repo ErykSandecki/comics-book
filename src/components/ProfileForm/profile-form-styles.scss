@@ -1,0 +1,53 @@
+@import '../../styles/animations.scss';
+
+.ProfileForm {
+  &__form-wrapper {
+    @include entry-animation;
+  }
+
+  &__title {
+    font-size: 25px;
+    position: relative;
+    text-align: center;
+  }
+
+  &__icon {
+    cursor: pointer;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+  }
+
+  &__avatar {
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    height: 125px;
+    justify-content: center;
+    margin: 50px auto;
+    position: relative;
+    width: 125px;
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__empty-picture {
+    font-size: 12px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  &__button-picture {
+    position: absolute;
+    right: -75px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

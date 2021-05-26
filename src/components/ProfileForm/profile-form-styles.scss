@@ -57,11 +57,13 @@
 
   &__button-picture {
     cursor: pointer;
+    height: 40px;
     position: absolute;
-    right: -75px;
-    top: 50%;
+    right: -20px;
+    top: 75%;
     transform: translateY(-50%);
     transition: 300ms ease-in-out;
+    width: 40px;
 
     &:hover {
       transform: translateY(-50%) scale(1.2);

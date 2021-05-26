@@ -16,8 +16,9 @@
   }
 
   &__pickers {
+    align-items: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     margin-top: 50px;
   }
 }

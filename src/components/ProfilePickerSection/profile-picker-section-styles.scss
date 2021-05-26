@@ -22,14 +22,15 @@
     font-size: 25px;
     position: relative;
     text-align: center;
+  }
 
-    &::before {
-      content: '';
-      background: url('../../assets/images/icons/back.svg');
-      left: 0;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  &__icon {
+    cursor: pointer;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
   }
 }

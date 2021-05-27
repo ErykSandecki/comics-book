@@ -29,10 +29,10 @@ const Firebase: FunctionComponent<{}> = () => {
       dispatch(fetchProfilesSuccess(payload));
     };
 
-    if (!isAuthenticated) {
+    if (isAuthenticated) {
       setTimeout(() => {
         databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
-      }, 1);
+      }, 5000);
     }
     // eslint-disable-next-line
   }, [isAuthenticated]);

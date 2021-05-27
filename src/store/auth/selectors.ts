@@ -17,8 +17,3 @@ export const isPendingSelector: Selector<TMainState, boolean> = createSelector(
   authSelector,
   getFp('isPending')
 );
-
-export const profileIdSelector: Selector<TMainState, boolean> = createSelector(
-  authSelector,
-  getFp('profileId')
-);

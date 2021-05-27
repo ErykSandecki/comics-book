@@ -11,7 +11,7 @@ import { Mode } from './enums';
 import './profile-picker-section-styles.scss';
 
 const ProfilePickerSection: FunctionComponent = () => {
-  const [mode, setMode] = useState(Mode.createProfile);
+  const [mode, setMode] = useState(Mode.listProfiles);
 
   const onClickBackHandler = (): void => setMode(Mode.listProfiles);
 

@@ -19,5 +19,5 @@ export const profilesLoadedSelector: Selector<TMainState, boolean> =
 
 export const getAttributeFromProfiles = (
   attribute: string
-): Selector<TMainState, Array<TProfile> | undefined> =>
+): Selector<TMainState, Array<TProfile>> =>
   createSelector(profilesSelector, getFp(attribute));

@@ -4,6 +4,7 @@ import {
   TCreateProfileError,
   TFetchProfilesSuccess,
   TProfilesState,
+  TSetProfileId,
 } from './types';
 
 // store
@@ -50,6 +51,14 @@ const fetchProfilesError = (state: TAuthState): TAuthState => ({
   isPending: false,
 });
 
+const setProfileId = (
+  state: TAuthState,
+  { payload: seletedProfileId }: TSetProfileId
+): TAuthState => ({
+  ...state,
+  seletedProfileId,
+});
+
 const profiles = (
   state: TAuthState = initialState,
   action: TAnyAction
@@ -65,6 +74,8 @@ const profiles = (
       return fetchProfilesSuccess(state, action);
     case ProfilesActionsType.fetchProfilesError:
       return fetchProfilesError(state, action);
+    case ProfilesActionsType.setProfileId:
+      return setProfileId(state, action);
     default:
       return state;
   }

@@ -52,3 +52,8 @@ export type TUploadImageFinished = {
   type: typeof ProfilesActionsType.uploadImageFinished;
   payload: TReturnablePayload;
 };
+
+export type TSetProfileId = {
+  type: typeof ProfilesActionsType.setProfileId;
+  payload: string;
+};

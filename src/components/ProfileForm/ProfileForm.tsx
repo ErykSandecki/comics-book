@@ -8,6 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 // others
 import BackIcon from '../../assets/images/icons/back.svg';
 import ButtonPicture from '../../assets/images/icons/button-picture.svg';
+import EmptyImage from '../../assets/images/icons/empty-image.svg';
 import { TImageData } from '../../types';
 import { TProfileFormData } from '../../store/profiles/types';
 
@@ -77,7 +78,11 @@ const ProfileForm: FunctionComponent<TProps> = ({
               src={imageData.src}
             />
           ) : (
-            <p className="ProfileForm__empty-picture">Please select picture:</p>
+            <img
+              alt="empty"
+              className="ProfileForm__empty-picture"
+              src={EmptyImage}
+            />
           )}
 
           {/* BUTTON */}

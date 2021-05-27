@@ -2,7 +2,6 @@
 import { FunctionComponent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import firebase from 'firebase';
-import ReduxSagaFirebase from 'redux-saga-firebase';
 
 // others
 import { config } from './constants';
@@ -30,10 +29,10 @@ const Firebase: FunctionComponent<{}> = () => {
       dispatch(fetchProfilesSuccess(payload));
     };
 
-    if (!isAuthenticated) {
+    if (isAuthenticated) {
       setTimeout(() => {
         databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
-      }, 1);
+      }, 5000);
     }
     // eslint-disable-next-line
   }, [isAuthenticated]);

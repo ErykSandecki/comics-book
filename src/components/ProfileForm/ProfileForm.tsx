@@ -62,7 +62,6 @@ const ProfileForm: FunctionComponent<TProps> = ({
       </h2>
 
       {/* FORM */}
-      {/* @ts-ignore */}
       <form className="ProfileForm" onSubmit={onSubmitHandler}>
         {/* AVATAR */}
         <div
@@ -71,7 +70,6 @@ const ProfileForm: FunctionComponent<TProps> = ({
           }`}
         >
           {imageData ? (
-            // @ts-ignore
             <img
               alt="avatar"
               className="ProfileForm__image"
@@ -89,13 +87,11 @@ const ProfileForm: FunctionComponent<TProps> = ({
           <img
             alt="button-icon"
             className="ProfileForm__button-picture"
-            // @ts-ignore
             onClick={() => inputRef.current.click()}
             src={ButtonPicture}
           />
           <input
             className="ProfileForm__input-file"
-            // @ts-ignore
             onChange={(event: Event) => loadImage(event, setImageData)}
             ref={inputRef}
             type="file"

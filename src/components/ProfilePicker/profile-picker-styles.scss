@@ -2,6 +2,7 @@
   border-radius: 5px;
   box-sizing: border-box;
   color: #a8a9ad;
+  cursor: pointer;
   height: 200px;
   margin-bottom: 25px;
   transition: 300ms ease-in-out;
@@ -25,7 +26,6 @@
     align-items: center;
     background-color: #a8a9ad;
     border-radius: 50%;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     margin: 35px auto;
@@ -47,6 +47,10 @@
 
     &__title {
       color: #ffffff;
+    }
+
+    &__button {
+      border: 3px solid #a8a9ad;
     }
 
     &__image {

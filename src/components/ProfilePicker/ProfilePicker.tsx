@@ -20,14 +20,17 @@ const ProfilePicker: FunctionComponent<TProps> = ({
   src,
 }) => {
   return (
-    <section className={`ProfilePicker ProfilePicker--${mode}`}>
+    <section
+      className={`ProfilePicker ProfilePicker--${mode}`}
+      onClick={clickHandler}
+    >
       {/* TITLE */}
       <p className={`ProfilePicker__title ProfilePicker--${mode}__title`}>
         {name ? name : 'Create:'}
       </p>
 
       {/* CIRCLE */}
-      <div className="ProfilePicker__button" onClick={clickHandler}>
+      <div className={`ProfilePicker__button ProfilePicker--${mode}__button`}>
         <img
           alt={name ? `${name}-avatar` : 'icon'}
           className={`ProfilePicker__image ProfilePicker--${mode}__image`}

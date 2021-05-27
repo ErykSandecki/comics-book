@@ -1,0 +1,16 @@
+.PageHeaderSettingsMenu {
+  &__item {
+    align-items: center !important;
+    font-size: 14px !important;
+    justify-content: space-between !important;
+    width: 115px !important;
+
+    &:last-child {
+      color: #ff1d1d !important;
+    }
+  }
+
+  &__icon-rotate {
+    transform: rotate(180deg);
+  }
+}

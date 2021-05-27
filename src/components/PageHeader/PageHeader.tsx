@@ -2,6 +2,7 @@ import { FunctionComponent, useState } from 'react';
 
 // components
 import NavMenu from '../NavMenu/NavMenu';
+import PageHeaderSettingsMenu from './PageHeaderSettingsMenu/PageHeaderSettingsMenu';
 
 // others
 import HamburgerMenu from '../../assets/images/icons/hamburger-menu.svg';
@@ -15,24 +16,27 @@ const PageHeader: FunctionComponent<{}> = () => {
   return (
     <header className="PageHeader">
       {/* LEFT COLUMN */}
-      <div className="PageHeader__content">
+      <div className="PageHeader__left-column">
         {/* PICKER */}
         <div className="PageHeader__channel-picker">ME</div>
 
         {/* DETAILS */}
         <div>
-          <p className="PageHeader__title">Gentleman App - Meetings</p>
-          <p className="PageHeader__users">2 Brothers-in-law online</p>
+          <p className="PageHeader__title">#Meetings</p>
+          <p className="PageHeader__users">2 Brothers online</p>
         </div>
       </div>
 
       {/* RIGHT COLUMN */}
-      <img
-        alt="hamburger-menu"
-        className="PageHeader__hamburger-menu"
-        onClick={() => setVisible(true)}
-        src={HamburgerMenu}
-      />
+      <div className="PageHeader__right-column">
+        <PageHeaderSettingsMenu />
+        <img
+          alt="hamburger-menu"
+          className="PageHeader__hamburger-menu"
+          onClick={() => setVisible(true)}
+          src={HamburgerMenu}
+        />
+      </div>
 
       {/* Nav Left Menu */}
       <NavMenu visible={visible} setVisible={setVisible} />

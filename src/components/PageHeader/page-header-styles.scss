@@ -20,7 +20,7 @@
     @include channel-picker();
   }
 
-  &__content {
+  &__left-column {
     align-items: center;
     display: flex;
   }
@@ -34,8 +34,14 @@
     font-size: 12px;
   }
 
+  &__right-column {
+    align-items: center;
+    display: flex;
+  }
+
   &__hamburger-menu {
     cursor: pointer;
     height: 20px;
+    margin-left: 25px;
   }
 }

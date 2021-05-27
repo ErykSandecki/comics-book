@@ -6,6 +6,9 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import Page from '../Page/Page';
 
+// core
+import ContextProvider from '../../core/ContextProvider/ContextProvider';
+
 // store
 import {
   errorMessageSelector,
@@ -45,7 +48,9 @@ const App: FunctionComponent<{}> = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Page />;
+      <ContextProvider>
+        <Page />
+      </ContextProvider>
     </ThemeProvider>
   );
 };

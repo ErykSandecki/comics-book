@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/comics-book/static/css/main.e257126a.chunk.css",
-    "main.js": "/comics-book/static/js/main.1680475b.chunk.js",
-    "main.js.map": "/comics-book/static/js/main.1680475b.chunk.js.map",
+    "main.js": "/comics-book/static/js/main.4ca6f34e.chunk.js",
+    "main.js.map": "/comics-book/static/js/main.4ca6f34e.chunk.js.map",
     "runtime-main.js": "/comics-book/static/js/runtime-main.fdaa2f7e.js",
     "runtime-main.js.map": "/comics-book/static/js/runtime-main.fdaa2f7e.js.map",
     "static/js/2.cdc2fd14.chunk.js": "/comics-book/static/js/2.cdc2fd14.chunk.js",
@@ -13,7 +13,7 @@
     "static/media/back.3f83d067.svg": "/comics-book/static/media/back.3f83d067.svg",
     "static/media/button-picture.9659aaae.svg": "/comics-book/static/media/button-picture.9659aaae.svg",
     "static/media/close.91205169.svg": "/comics-book/static/media/close.91205169.svg",
-    "static/media/empty-image.d85f3874.svg": "/comics-book/static/media/empty-image.d85f3874.svg",
+    "static/media/empty-image.16de0a9b.svg": "/comics-book/static/media/empty-image.16de0a9b.svg",
     "static/media/error.6a233495.svg": "/comics-book/static/media/error.6a233495.svg",
     "static/media/gentleman.ff3326dc.svg": "/comics-book/static/media/gentleman.ff3326dc.svg",
     "static/media/hamburger-menu.85ddbb0d.svg": "/comics-book/static/media/hamburger-menu.85ddbb0d.svg",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.fdaa2f7e.js",
     "static/js/2.cdc2fd14.chunk.js",
     "static/css/main.e257126a.chunk.css",
-    "static/js/main.1680475b.chunk.js"
+    "static/js/main.4ca6f34e.chunk.js"
   ]
 }

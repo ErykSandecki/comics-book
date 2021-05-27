@@ -43,8 +43,8 @@ const ProfileForm: FunctionComponent<TProps> = ({
   const onSubmitHandler = (event: Event) => {
     event.preventDefault();
 
-    if (imageData) {
-      submitHandler({ name, imageData });
+    if (imageData && name) {
+      submitHandler({ backToProfileList: clickHandler, imageData, name });
     }
   };
 
@@ -108,7 +108,7 @@ const ProfileForm: FunctionComponent<TProps> = ({
         <Button
           className="ProfileForm__submit-button"
           color="primary"
-          // disabled={isPending}
+          disabled={isPending}
           size="large"
           type="submit"
           variant="contained"

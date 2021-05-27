@@ -2,13 +2,14 @@
 import { CommonActionsType } from './actionsType';
 
 export type TFile = {
-  name: string;
+  path: string;
   file: Blob;
 };
 
 export type TReturnablePayload = {
+  error?: string;
   result: 'success' | 'error';
-  src: string;
+  src?: string;
 };
 
 export type TFileUploadPayload = TFile & {

@@ -7,18 +7,20 @@ import { ProfilesActionsType } from './actionsType';
 
 export type TProfilesState = {
   data: Array<TProfile>;
+  error: string;
   isPending: boolean;
   seletedProfileId: string;
 };
 
 export type TProfileFormData = {
+  backToProfileList: () => void;
   name: string;
   imageData: TImageData;
 };
 
 export type TProfile = {
-  active: boolean;
   name: string;
+  online: boolean;
   profileId: string;
   src: string;
 };
@@ -26,6 +28,15 @@ export type TProfile = {
 export type TCreateProfile = {
   type: typeof ProfilesActionsType.createProfile;
   payload: TProfileFormData;
+};
+
+export type TCreateProfileSuccess = {
+  type: typeof ProfilesActionsType.createProfileSuccess;
+};
+
+export type TCreateProfileError = {
+  type: typeof ProfilesActionsType.createProfileError;
+  payload: string;
 };
 
 export type TFetchProfilesSuccess = {

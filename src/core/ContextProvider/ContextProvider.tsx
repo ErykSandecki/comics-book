@@ -20,8 +20,9 @@ const ContextProvider: FunctionComponent<TProps> = ({ children }) => {
   const [margin, setMargin] = useState(getMarginFromLocalStorage());
 
   const setMarginHandler = (value: number): void => {
+    const result = margin + value;
+
     if (margin > 0 || value !== -1) {
-      const result = margin + value;
       setMargin(result);
       localStorage.setItem(LocalStorageKey.marginOffset, result);
     }

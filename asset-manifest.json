@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/comics-book/static/css/main.9ae8b0da.chunk.css",
-    "main.js": "/comics-book/static/js/main.af64518f.chunk.js",
-    "main.js.map": "/comics-book/static/js/main.af64518f.chunk.js.map",
+    "main.css": "/comics-book/static/css/main.e257126a.chunk.css",
+    "main.js": "/comics-book/static/js/main.1680475b.chunk.js",
+    "main.js.map": "/comics-book/static/js/main.1680475b.chunk.js.map",
     "runtime-main.js": "/comics-book/static/js/runtime-main.fdaa2f7e.js",
     "runtime-main.js.map": "/comics-book/static/js/runtime-main.fdaa2f7e.js.map",
-    "static/js/2.c5020648.chunk.js": "/comics-book/static/js/2.c5020648.chunk.js",
-    "static/js/2.c5020648.chunk.js.map": "/comics-book/static/js/2.c5020648.chunk.js.map",
+    "static/js/2.cdc2fd14.chunk.js": "/comics-book/static/js/2.cdc2fd14.chunk.js",
+    "static/js/2.cdc2fd14.chunk.js.map": "/comics-book/static/js/2.cdc2fd14.chunk.js.map",
     "index.html": "/comics-book/index.html",
-    "static/css/main.9ae8b0da.chunk.css.map": "/comics-book/static/css/main.9ae8b0da.chunk.css.map",
-    "static/js/2.c5020648.chunk.js.LICENSE.txt": "/comics-book/static/js/2.c5020648.chunk.js.LICENSE.txt",
+    "static/css/main.e257126a.chunk.css.map": "/comics-book/static/css/main.e257126a.chunk.css.map",
+    "static/js/2.cdc2fd14.chunk.js.LICENSE.txt": "/comics-book/static/js/2.cdc2fd14.chunk.js.LICENSE.txt",
     "static/media/back.3f83d067.svg": "/comics-book/static/media/back.3f83d067.svg",
-    "static/media/button-picture.7e1048a6.svg": "/comics-book/static/media/button-picture.7e1048a6.svg",
+    "static/media/button-picture.9659aaae.svg": "/comics-book/static/media/button-picture.9659aaae.svg",
     "static/media/close.91205169.svg": "/comics-book/static/media/close.91205169.svg",
-    "static/media/empty-image.c3e5e19d.svg": "/comics-book/static/media/empty-image.c3e5e19d.svg",
-    "static/media/error.aee84ee0.svg": "/comics-book/static/media/error.aee84ee0.svg",
-    "static/media/gentleman.154e51ca.svg": "/comics-book/static/media/gentleman.154e51ca.svg",
-    "static/media/hamburger-menu.4f615ee5.svg": "/comics-book/static/media/hamburger-menu.4f615ee5.svg",
-    "static/media/plus.553def23.svg": "/comics-book/static/media/plus.553def23.svg",
-    "static/media/send-icon.2dc21fc0.svg": "/comics-book/static/media/send-icon.2dc21fc0.svg"
+    "static/media/empty-image.d85f3874.svg": "/comics-book/static/media/empty-image.d85f3874.svg",
+    "static/media/error.6a233495.svg": "/comics-book/static/media/error.6a233495.svg",
+    "static/media/gentleman.ff3326dc.svg": "/comics-book/static/media/gentleman.ff3326dc.svg",
+    "static/media/hamburger-menu.85ddbb0d.svg": "/comics-book/static/media/hamburger-menu.85ddbb0d.svg",
+    "static/media/plus.c453ef1e.svg": "/comics-book/static/media/plus.c453ef1e.svg",
+    "static/media/send-icon.d7969ca4.svg": "/comics-book/static/media/send-icon.d7969ca4.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.fdaa2f7e.js",
-    "static/js/2.c5020648.chunk.js",
-    "static/css/main.9ae8b0da.chunk.css",
-    "static/js/main.af64518f.chunk.js"
+    "static/js/2.cdc2fd14.chunk.js",
+    "static/css/main.e257126a.chunk.css",
+    "static/js/main.1680475b.chunk.js"
   ]
 }

@@ -7,6 +7,10 @@
   transition: 300ms ease-in-out;
   width: 150px;
 
+  @media screen and (min-width: 768px) {
+    margin: 0 25px;
+  }
+
   &:hover {
     transform: scale(1.2);
   }

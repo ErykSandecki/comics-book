@@ -48,17 +48,9 @@ $width: 300px;
   &__header {
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 80px;
     padding: 0 25px;
-  }
-
-  &__input-filter {
-    border: none;
-    border-radius: 5px;
-    height: 25px;
-    padding: 5px 10px;
-    width: calc(100% - 65px);
   }
 
   &__button-close {

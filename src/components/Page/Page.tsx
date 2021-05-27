@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
 // components
+import Chat from '../Chat/Chat';
 import PageHeader from '../PageHeader/PageHeader';
 import ProfilePicker from '../ProfilePickerSection/ProfilePickerSection';
 import PageLoader from '../PageLoader/PageLoader';
@@ -30,6 +31,7 @@ const Page: FunctionComponent<{}> = () => {
   return (
     <div className="Page">
       <PageHeader />
+      <Chat />
     </div>
   );
 };

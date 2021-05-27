@@ -1,0 +1,13 @@
+.ChatInput {
+  padding: 15px;
+
+  &__text-field {
+    background-color: #696969;
+    border-radius: 5px;
+    font-size: 14px;
+    max-height: 90px;
+    overflow-y: hidden;
+    padding: 5px 35px 5px 10px;
+    word-wrap: break-word;
+  }
+}

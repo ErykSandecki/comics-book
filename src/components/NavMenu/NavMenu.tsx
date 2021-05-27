@@ -31,10 +31,6 @@ const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="NavMenu__header">
-          <input
-            placeholder="Search for a channel:"
-            className="NavMenu__input-filter"
-          />
           <div className="NavMenu__button-close">
             <img alt="close-icon" onClick={onClickHandler} src={CloseIcon} />
           </div>

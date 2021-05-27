@@ -12,7 +12,7 @@ const Chat: FunctionComponent<{}> = () => {
   const messagesRef = useRef(null);
   const inputRef = useRef(null);
 
-  const onChangeHandler = (event: Event): void => {
+  const onInputHandler = (event: Event): void => {
     const height = inputRef.current.clientHeight;
     messagesRef.current.style.height = `calc(100% - ${height}px)`;
   };
@@ -20,7 +20,7 @@ const Chat: FunctionComponent<{}> = () => {
   return (
     <section className="Chat">
       <ChatMessages ref={messagesRef} />
-      <ChatInput changeHandler={onChangeHandler} ref={inputRef} />
+      <ChatInput inputHandler={onInputHandler} ref={inputRef} />
     </section>
   );
 };

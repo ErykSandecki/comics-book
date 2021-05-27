@@ -6,8 +6,12 @@
     border-radius: 5px;
     font-size: 14px;
     max-height: 90px;
-    overflow-y: hidden;
+    overflow-y: auto;
     padding: 5px 35px 5px 10px;
     word-wrap: break-word;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

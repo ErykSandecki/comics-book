@@ -24,7 +24,7 @@ const ChatInput: ForwardRefExoticComponent<
   const onBlurHandler = (event: Event): void => {
     const { target } = event;
 
-    if (target.innerText === '') {
+    if (target.innerText.trim().length === 0) {
       setVisibilityPlaceholder(true);
     }
   };

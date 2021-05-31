@@ -1,6 +1,7 @@
+import composeFp from 'lodash/fp/compose';
+import findFp from 'lodash/fp/find';
 import getFp from 'lodash/fp/get';
 import isArrayFp from 'lodash/fp/isArray';
-import composeFp from 'lodash/fp/compose';
 import { createSelector, Selector } from 'reselect';
 
 // store
@@ -19,5 +20,17 @@ export const profilesLoadedSelector: Selector<TMainState, boolean> =
 
 export const getAttributeFromProfiles = (
   attribute: string
-): Selector<TMainState, Array<TProfile>> =>
+): Selector<TMainState, any> =>
   createSelector(profilesSelector, getFp(attribute));
+
+export const getAttributesFromSelectedProfile = (
+  selectedProfileId: string
+): Selector<TMainState, TProfile> =>
+  // @ts-ignore
+  createSelector(
+    profilesSelector,
+    composeFp(
+      findFp(({ profileId }) => profileId === selectedProfileId),
+      getFp('data')
+    )
+  );

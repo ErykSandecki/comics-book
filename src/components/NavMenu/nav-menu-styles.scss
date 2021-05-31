@@ -17,7 +17,7 @@ $width: 300px;
   }
 
   &__background {
-    background-color: #2a2d38;
+    background-color: #1d1c20;
     height: 100%;
     left: 0;
     opacity: 0;
@@ -32,7 +32,7 @@ $width: 300px;
   }
 
   &__container {
-    background-color: #2a2d38;
+    background-color: #1d1c20;
     border-right: 1px solid #3b3b3b;
     cursor: initial;
     height: 100%;
@@ -48,23 +48,29 @@ $width: 300px;
   &__header {
     align-items: center;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 80px;
     padding: 0 25px;
   }
 
-  &__button-close {
+  &__profile-data {
     align-items: center;
-    border: 2px solid white;
-    border-radius: 50%;
     display: flex;
-    height: 25px;
-    justify-content: center;
-    width: 25px;
+  }
 
-    img {
-      height: 10px;
-      width: 10px;
-    }
+  &__profile-name {
+    margin-left: 10px;
+    font-weight: 600;
+  }
+
+  &__profile-avatar {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+  }
+  &__button-close {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
   }
 }

@@ -1,5 +1,8 @@
 import { FunctionComponent } from 'react';
 
+// hooks
+import usePress from './usePress';
+
 // others
 import PlusIcon from '../../assets/images/icons/plus.svg';
 
@@ -19,11 +22,21 @@ const ProfilePicker: FunctionComponent<TProps> = ({
   name,
   src,
 }) => {
+  const onPressHandler = () => {
+    // TODO: show overlay
+  };
+
+  const onClickHandler = () => {
+    clickHandler();
+  };
+
+  const longPress = usePress(onPressHandler, onClickHandler, {
+    shouldPreventDefault: true,
+    delay: 1000,
+  });
+
   return (
-    <section
-      className={`ProfilePicker ProfilePicker--${mode}`}
-      onClick={clickHandler}
-    >
+    <section className={`ProfilePicker ProfilePicker--${mode}`} {...longPress}>
       {/* TITLE */}
       <p className={`ProfilePicker__title ProfilePicker--${mode}__title`}>
         {name ? name : 'Create:'}

@@ -1,7 +1,14 @@
 import { FunctionComponent } from 'react';
+import { useSelector } from 'react-redux';
 
 // others
-import CloseOutlinedIcon from '../../assets/images/icons/close-outlined-icon.svg';
+import CloseWhiteIcon from '../../assets/images/icons/close-white-icon.svg';
+
+// store
+import {
+  getAttributeFromProfiles,
+  getAttributesFromSelectedProfile,
+} from '../../store/profiles/selectors';
 
 // styles
 import './nav-menu-styles.scss';
@@ -13,6 +20,12 @@ type TProps = {
 
 const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
   const onClickHandler = (): void => setVisible(false);
+  const selectedProfileId = useSelector(
+    getAttributeFromProfiles('seletedProfileId')
+  );
+  const { name, src } = useSelector(
+    getAttributesFromSelectedProfile(selectedProfileId)
+  );
 
   return (
     <div
@@ -31,13 +44,20 @@ const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="NavMenu__header">
-          <div className="NavMenu__button-close">
+          <div className="NavMenu__profile-data">
             <img
-              alt="close-outlined-icon"
-              onClick={onClickHandler}
-              src={CloseOutlinedIcon}
+              alt="profile-avatar"
+              className="NavMenu__profile-avatar"
+              src={src}
             />
+            <p className="NavMenu__profile-name">{name}</p>
           </div>
+          <img
+            alt="close-white-icon"
+            className="NavMenu__button-close"
+            onClick={onClickHandler}
+            src={CloseWhiteIcon}
+          />
         </div>
       </div>
     </div>

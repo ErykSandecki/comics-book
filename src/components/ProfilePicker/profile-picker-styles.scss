@@ -10,10 +10,10 @@
 
   @media screen and (min-width: 768px) {
     margin: 0 25px;
-  }
 
-  &:hover {
-    transform: scale(1.2);
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__card {
@@ -51,8 +51,9 @@
     border: 1px solid #5a5a5a;
 
     &__image {
-      width: 25px;
       height: 25px;
+      pointer-events: none;
+      width: 25px;
     }
   }
 
@@ -71,6 +72,7 @@
     &__image {
       border-radius: 50%;
       height: 100%;
+      pointer-events: none;
       width: 100%;
     }
   }

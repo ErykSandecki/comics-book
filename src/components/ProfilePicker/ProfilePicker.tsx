@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 
 // hooks
 import usePress from './usePress';
@@ -22,34 +22,43 @@ const ProfilePicker: FunctionComponent<TProps> = ({
   name,
   src,
 }) => {
+  const [overlayVisible, setOverlayVisible] = useState(false);
+  const isOverlayVisible = mode === 'select' && overlayVisible;
   const onPressHandler = () => {
-    // TODO: show overlay
+    setOverlayVisible(true);
   };
 
   const onClickHandler = () => {
     clickHandler();
   };
 
-  const longPress = usePress(onPressHandler, onClickHandler, {
-    shouldPreventDefault: true,
-    delay: 1000,
-  });
+  const press = usePress(onPressHandler, onClickHandler);
 
   return (
-    <section className={`ProfilePicker ProfilePicker--${mode}`} {...longPress}>
-      {/* TITLE */}
-      <p className={`ProfilePicker__title ProfilePicker--${mode}__title`}>
-        {name ? name : 'Create:'}
-      </p>
+    <section className="ProfilePicker">
+      <div
+        className={`ProfilePicker__card ProfilePicker--${mode} ${
+          isOverlayVisible ? 'ProfilePicker__blur' : ''
+        }`}
+        {...press}
+      >
+        {/* TITLE */}
+        <p className={`ProfilePicker__title ProfilePicker--${mode}__title`}>
+          {name ? name : 'Create:'}
+        </p>
 
-      {/* CIRCLE */}
-      <div className={`ProfilePicker__button ProfilePicker--${mode}__button`}>
-        <img
-          alt={name ? `${name}-avatar` : 'icon'}
-          className={`ProfilePicker__image ProfilePicker--${mode}__image`}
-          src={src ? src : PlusIcon}
-        />
+        {/* CIRCLE */}
+        <div className={`ProfilePicker__button ProfilePicker--${mode}__button`}>
+          <img
+            alt={name ? `${name}-avatar` : 'icon'}
+            className={`ProfilePicker__image ProfilePicker--${mode}__image`}
+            src={src ? src : PlusIcon}
+          />
+        </div>
       </div>
+
+      {/* OVERLAY */}
+      {isOverlayVisible && <div className="ProfilePicker__overlay"></div>}
     </section>
   );
 };

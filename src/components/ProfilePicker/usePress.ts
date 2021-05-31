@@ -4,7 +4,7 @@ import { useCallback, useRef, useState } from 'react';
 const usePress = (
   pressHandler,
   clickHandler,
-  { shouldPreventDefault = true, delay = 300 } = {}
+  { shouldPreventDefault = true, delay = 1000 } = {}
 ) => {
   const [longPressTriggered, setLongPressTriggered] = useState(false);
   const timeout = useRef();

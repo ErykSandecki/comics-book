@@ -35,10 +35,14 @@ const ProfilePicker: FunctionComponent<TProps> = ({
   const press = usePress(onPressHandler, onClickHandler);
 
   return (
-    <section className="ProfilePicker">
+    <section
+      className={`ProfilePicker ${
+        isOverlayVisible ? 'ProfilePicker--blur' : ''
+      }`}
+    >
       <div
-        className={`ProfilePicker__card ProfilePicker--${mode} ${
-          isOverlayVisible ? 'ProfilePicker__blur' : ''
+        className={`ProfilePicker__card ProfilePicker--${mode}__card ${
+          isOverlayVisible ? 'ProfilePicker__card--blur' : ''
         }`}
         {...press}
       >

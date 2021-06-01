@@ -1,6 +1,9 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
+// components
+import NavMenuChannels from './NavMenuChannels/NavMenuChannels';
+
 // others
 import CloseWhiteIcon from '../../assets/images/icons/close-white-icon.svg';
 
@@ -32,17 +35,21 @@ const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
       className={`NavMenu ${visible && 'NavMenu--visible'}`}
       onClick={onClickHandler}
     >
+      {/* BACKGROUND */}
       <div
         className={`NavMenu__background ${
           visible && 'NavMenu__background--visible'
         }`}
       />
+
+      {/* CONTAINER */}
       <div
         className={`NavMenu__container ${
           visible && 'NavMenu__container--visible'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* HEADER */}
         <div className="NavMenu__header">
           <div className="NavMenu__profile-data">
             <img
@@ -58,6 +65,11 @@ const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
             onClick={onClickHandler}
             src={CloseWhiteIcon}
           />
+        </div>
+
+        {/* CONTENT */}
+        <div className="NavMenu__content">
+          <NavMenuChannels />
         </div>
       </div>
     </div>

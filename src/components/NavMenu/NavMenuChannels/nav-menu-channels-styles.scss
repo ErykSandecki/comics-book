@@ -1,0 +1,29 @@
+.NavMenuChannels {
+  &__nav {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__button {
+    cursor: pointer;
+  }
+
+  &__modal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__card {
+    background-color: #1d1c20;
+    color: #ffffff;
+    outline: none;
+    padding: 25px;
+    text-align: center;
+  }
+}

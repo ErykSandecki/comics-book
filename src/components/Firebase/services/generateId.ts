@@ -1,7 +1,9 @@
+// @ts-nocheck
 // others
-import { TProfile } from './../../../store/profiles/types';
+import { TChannel } from '../../../store/channels/types';
+import { TProfile } from '../../../store/profiles/types';
 
-const generateProfileId = (data: Array<TProfile>) => {
+const generateId = (data: Array<TProfile | TChannel>, keyId: string) => {
   const result: Array<string> = [];
   const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -13,9 +15,9 @@ const generateProfileId = (data: Array<TProfile>) => {
         characters.charAt(Math.floor(Math.random() * characters.length))
       );
     }
-  } while (data.find(({ profileId }) => profileId === result.join('')));
+  } while (data.find((data) => data[keyId] === result.join('')));
 
   return result.join('');
 };
 
-export default generateProfileId;
+export default generateId;

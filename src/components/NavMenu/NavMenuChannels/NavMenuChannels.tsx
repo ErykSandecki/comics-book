@@ -2,9 +2,6 @@ import { FunctionComponent, useState } from 'react';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 // components
 import NavMenuCreateChannelForm from '../NavMenuCreateChannelForm/NavMenuCreateChannelForm';
@@ -44,7 +41,7 @@ const NavMenuChannels: FunctionComponent = () => {
       >
         <Fade in={visible}>
           <div className="NavMenuChannels__card">
-            <NavMenuCreateChannelForm />
+            <NavMenuCreateChannelForm closeModal={() => setVisible(false)} />
           </div>
         </Fade>
       </Modal>

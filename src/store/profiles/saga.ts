@@ -8,7 +8,7 @@ import { StoragePath } from '../../enums';
 
 // services
 import afterUploadImageHandler from '../../components/Firebase/services/afterUploadImageHandler';
-import generateProfileId from '../../components/Firebase/services/generateProfileId';
+import generateId from '../../components/Firebase/services/generateId';
 import getRefDatabase from '../../components/Firebase/services/getRefDatabase';
 
 // store
@@ -29,7 +29,7 @@ export function* createProfile({ payload }): Generator<PutEffect<any>> {
   }: TProfileFormData = payload;
   const path = `${StoragePath.profiles}/${name}`;
   const data = yield select(getAttributeFromProfiles('data'));
-  const profileId = generateProfileId(data);
+  const profileId = generateId(data, 'profileId');
 
   try {
     yield put(uploadFile({ action: uploadImageFinished, path, file }));

@@ -6,10 +6,12 @@ import firebase from 'firebase';
 // others
 import { config } from './constants';
 import { DatabaseColumns } from './enums';
+import { TChannel } from '../../store/channels/types';
 import { TProfile } from '../../store/profiles/types';
 
 // store
 import { isAuthenticatedSelector } from '../../store/selectors';
+import { fetchChannelsSuccess } from '../../store/channels/actions';
 import { fetchProfilesSuccess } from '../../store/profiles/actions';
 
 // services
@@ -28,10 +30,14 @@ const Firebase: FunctionComponent<{}> = () => {
     const profilesActions = (payload: Array<TProfile>): void => {
       dispatch(fetchProfilesSuccess(payload));
     };
+    const channelsActions = (payload: Array<TChannel>): void => {
+      dispatch(fetchChannelsSuccess(payload));
+    };
 
     if (!isAuthenticated) {
       setTimeout(() => {
         databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
+        databaseHandler(firebase, channelsActions, DatabaseColumns.channels);
       }, 1);
     }
     // eslint-disable-next-line

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 // components
 import NavMenuChannels from './NavMenuChannels/NavMenuChannels';
+import NavMenuProfiles from './NavMenuProfiles/NavMenuProfiles';
 
 // others
 import CloseWhiteIcon from '../../assets/images/icons/close-white-icon.svg';
@@ -70,6 +71,7 @@ const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
         {/* CONTENT */}
         <div className="NavMenu__content">
           <NavMenuChannels closeNavMenu={onClickHandler} />
+          <NavMenuProfiles />
         </div>
       </div>
     </div>

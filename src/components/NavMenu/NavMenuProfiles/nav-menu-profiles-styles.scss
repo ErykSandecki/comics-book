@@ -1,0 +1,43 @@
+.NavMenuProfiles {
+  margin-top: 50px;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__profiles {
+    margin-top: 15px;
+  }
+
+  &__profile {
+    align-items: center;
+    display: flex;
+    margin: 20px 0;
+    position: relative;
+  }
+
+  &__avatar {
+    border-radius: 5px;
+    height: 45px;
+
+    width: 45px;
+  }
+
+  &__status {
+    bottom: 0;
+    position: absolute;
+    left: 35px;
+  }
+
+  &__name {
+    color: #ffffff;
+    margin-left: 15px;
+  }
+}

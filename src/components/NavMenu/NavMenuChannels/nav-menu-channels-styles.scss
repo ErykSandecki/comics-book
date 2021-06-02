@@ -3,6 +3,7 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 25px;
   }
 
   &__title {
@@ -20,7 +21,7 @@
   &__channel-name {
     color: rgb(160, 160, 160);
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   &__modal {

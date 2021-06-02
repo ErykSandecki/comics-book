@@ -1,34 +1,34 @@
 {
   "files": {
     "main.css": "/comics-book/static/css/main.af845e44.chunk.css",
-    "main.js": "/comics-book/static/js/main.7003d2e2.chunk.js",
-    "main.js.map": "/comics-book/static/js/main.7003d2e2.chunk.js.map",
+    "main.js": "/comics-book/static/js/main.fbdbe9ec.chunk.js",
+    "main.js.map": "/comics-book/static/js/main.fbdbe9ec.chunk.js.map",
     "runtime-main.js": "/comics-book/static/js/runtime-main.fdaa2f7e.js",
     "runtime-main.js.map": "/comics-book/static/js/runtime-main.fdaa2f7e.js.map",
-    "static/js/2.ef07094d.chunk.js": "/comics-book/static/js/2.ef07094d.chunk.js",
-    "static/js/2.ef07094d.chunk.js.map": "/comics-book/static/js/2.ef07094d.chunk.js.map",
+    "static/js/2.38894384.chunk.js": "/comics-book/static/js/2.38894384.chunk.js",
+    "static/js/2.38894384.chunk.js.map": "/comics-book/static/js/2.38894384.chunk.js.map",
     "index.html": "/comics-book/index.html",
     "static/css/main.af845e44.chunk.css.map": "/comics-book/static/css/main.af845e44.chunk.css.map",
-    "static/js/2.ef07094d.chunk.js.LICENSE.txt": "/comics-book/static/js/2.ef07094d.chunk.js.LICENSE.txt",
-    "static/media/back.3f83d067.svg": "/comics-book/static/media/back.3f83d067.svg",
-    "static/media/button-picture.7e1048a6.svg": "/comics-book/static/media/button-picture.7e1048a6.svg",
-    "static/media/close-icon.51d90ac8.svg": "/comics-book/static/media/close-icon.51d90ac8.svg",
+    "static/js/2.38894384.chunk.js.LICENSE.txt": "/comics-book/static/js/2.38894384.chunk.js.LICENSE.txt",
+    "static/media/back.d5208217.svg": "/comics-book/static/media/back.d5208217.svg",
+    "static/media/button-picture.9659aaae.svg": "/comics-book/static/media/button-picture.9659aaae.svg",
+    "static/media/close-icon.092c61d5.svg": "/comics-book/static/media/close-icon.092c61d5.svg",
     "static/media/close-white-icon.c6df9cb2.svg": "/comics-book/static/media/close-white-icon.c6df9cb2.svg",
-    "static/media/empty-image.16de0a9b.svg": "/comics-book/static/media/empty-image.16de0a9b.svg",
-    "static/media/gear-icon.7598d1ce.svg": "/comics-book/static/media/gear-icon.7598d1ce.svg",
-    "static/media/gentleman.154e51ca.svg": "/comics-book/static/media/gentleman.154e51ca.svg",
-    "static/media/hamburger-menu.4f615ee5.svg": "/comics-book/static/media/hamburger-menu.4f615ee5.svg",
-    "static/media/modify-size-icon.54599b76.svg": "/comics-book/static/media/modify-size-icon.54599b76.svg",
-    "static/media/offline-icon.328c273c.svg": "/comics-book/static/media/offline-icon.328c273c.svg",
-    "static/media/online-icon.cd9ad327.svg": "/comics-book/static/media/online-icon.cd9ad327.svg",
+    "static/media/empty-image.acb60281.svg": "/comics-book/static/media/empty-image.acb60281.svg",
+    "static/media/gear-icon.e5deb93c.svg": "/comics-book/static/media/gear-icon.e5deb93c.svg",
+    "static/media/gentleman.ff3326dc.svg": "/comics-book/static/media/gentleman.ff3326dc.svg",
+    "static/media/hamburger-menu.85ddbb0d.svg": "/comics-book/static/media/hamburger-menu.85ddbb0d.svg",
+    "static/media/modify-size-icon.7b8f31f6.svg": "/comics-book/static/media/modify-size-icon.7b8f31f6.svg",
+    "static/media/offline-icon.e258b94e.svg": "/comics-book/static/media/offline-icon.e258b94e.svg",
+    "static/media/online-icon.f3194dda.svg": "/comics-book/static/media/online-icon.f3194dda.svg",
     "static/media/plus-white-icon.f41cd2c2.svg": "/comics-book/static/media/plus-white-icon.f41cd2c2.svg",
-    "static/media/plus.553def23.svg": "/comics-book/static/media/plus.553def23.svg",
-    "static/media/send-icon.2dc21fc0.svg": "/comics-book/static/media/send-icon.2dc21fc0.svg"
+    "static/media/plus.c453ef1e.svg": "/comics-book/static/media/plus.c453ef1e.svg",
+    "static/media/send-icon.d7969ca4.svg": "/comics-book/static/media/send-icon.d7969ca4.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.fdaa2f7e.js",
-    "static/js/2.ef07094d.chunk.js",
+    "static/js/2.38894384.chunk.js",
     "static/css/main.af845e44.chunk.css",
-    "static/js/main.7003d2e2.chunk.js"
+    "static/js/main.fbdbe9ec.chunk.js"
   ]
 }

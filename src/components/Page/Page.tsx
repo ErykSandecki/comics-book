@@ -47,6 +47,7 @@ const Page: FunctionComponent<{}> = () => {
   };
 
   useEffect(() => {
+    window.addEventListener('blur', setStatusOffline);
     window.addEventListener('beforeunload', setStatusOffline);
     // eslint-disable-next-line
   });

@@ -1,3 +1,4 @@
+import { TSetStatusProfileError } from './types';
 // others
 import { TReturnablePayload } from './../common/types';
 import {
@@ -10,6 +11,7 @@ import {
   TProfileFormData,
   TUploadImageFinished,
   TSelectProfile,
+  TSelectProfileError,
   TSetStatusProfile,
 } from './types';
 
@@ -53,7 +55,17 @@ export const selectProfile = (payload: string): TSelectProfile => ({
   payload,
 });
 
+export const selectProfileError = (payload: string): TSelectProfileError => ({
+  type: ProfilesActionsType.selectProfileError,
+  payload,
+});
+
 export const setStatusProfile = (payload: boolean): TSetStatusProfile => ({
   type: ProfilesActionsType.setStatusProfile,
+  payload,
+});
+
+export const setStatusProfileError = (payload: string): TSetStatusProfileError => ({
+  type: ProfilesActionsType.setStatusProfileError,
   payload,
 });

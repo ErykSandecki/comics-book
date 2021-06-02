@@ -18,6 +18,8 @@ import {
   createProfileSuccess,
   createProfileError,
   uploadImageFinished,
+  selectProfileError,
+  setStatusProfileError
 } from './actions';
 import { uploadFile } from '../common/actions';
 import { getAttributeFromProfiles } from './selectors';
@@ -65,7 +67,7 @@ export function* selectProfile({
       profilesWithChangedStatus
     );
   } catch (error) {
-    console.log(error);
+    yield put(selectProfileError(error));
   }
 }
 
@@ -87,6 +89,6 @@ export function* setStatusProfile({
       'online',
     ]).set(online);
   } catch (error) {
-    console.log(error);
+    yield put(setStatusProfileError(error));
   }
 }

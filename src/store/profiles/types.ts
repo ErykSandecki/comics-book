@@ -58,7 +58,17 @@ export type TSelectProfile = {
   payload: string;
 };
 
+export type TSelectProfileError = {
+  type: typeof ProfilesActionsType.selectProfileError;
+  payload: string;
+};
+
 export type TSetStatusProfile = {
   type: typeof ProfilesActionsType.setStatusProfile;
   payload: boolean;
+};
+
+export type TSetStatusProfileError = {
+  type: typeof ProfilesActionsType.setStatusProfileError;
+  payload: string;
 };

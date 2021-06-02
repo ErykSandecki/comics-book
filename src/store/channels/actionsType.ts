@@ -8,5 +8,5 @@ export enum ChannelsActionsType {
   fetchChannelsSuccess = `${REDUCER_KEY}/fetchChannelsSuccess`,
   fetchChannelsError = `${REDUCER_KEY}/fetchChannelsError`,
   uploadImageFinished = `${REDUCER_KEY}/uploadImageFinished`,
-  setProfileId = `${REDUCER_KEY}/setProfileId`,
+  setChannelId = `${REDUCER_KEY}/setChannelId`,
 }

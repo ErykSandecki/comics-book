@@ -13,6 +13,16 @@
     cursor: pointer;
   }
 
+  &__channels {
+    margin-top: 15px;
+  }
+
+  &__channel-name {
+    color: rgb(160, 160, 160);
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
   &__modal {
     align-items: center;
     display: flex;
@@ -25,5 +35,10 @@
     outline: none;
     padding: 25px;
     text-align: center;
+  }
+
+  &__snackbar {
+    position: fixed !important;
+    width: 270px;
   }
 }

@@ -7,21 +7,22 @@ import { ChannelsActionsType } from './actionsType';
 export type Message = {};
 
 export type TChannel = {
-  chanelId: string;
+  channelId: string;
   messages: Array<Message>;
   name: string;
+  shortcut: string;
 };
 
 export type TChannelsState = {
   channels: Array<TChannel>;
   error: string;
   isPending: boolean;
-  seletedChannelId: string;
+  selectedChannelId: string;
 };
 
 export type TCreateChannel = {
   type: typeof ChannelsActionsType.createChannel;
-  payload: string;
+  payload: Omit<TChannel, 'chanelId' | 'messages'>;
 };
 
 export type TCreateChannelSuccess = {
@@ -40,6 +41,11 @@ export type TFetchChannelsSuccess = {
 
 export type TFetchChannelsError = {
   type: typeof ChannelsActionsType.fetchChannelsError;
+};
+
+export type TSetChannelId = {
+  type: typeof ChannelsActionsType.setChannelId;
+  payload: string;
 };
 
 export type TUploadImageFinished = {

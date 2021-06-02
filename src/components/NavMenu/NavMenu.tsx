@@ -69,7 +69,7 @@ const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
 
         {/* CONTENT */}
         <div className="NavMenu__content">
-          <NavMenuChannels />
+          <NavMenuChannels closeNavMenu={onClickHandler} />
         </div>
       </div>
     </div>

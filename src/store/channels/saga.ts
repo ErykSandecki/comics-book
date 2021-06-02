@@ -12,7 +12,8 @@ import getRefDatabase from '../../components/Firebase/services/getRefDatabase';
 import { createChannelSuccess, createChannelError } from './actions';
 import { getAttributeFromChannels } from './selectors';
 
-export function* createChannel({ payload: name }): Generator<PutEffect<any>> {
+export function* createChannel({ payload }): Generator<PutEffect<any>> {
+  const { name, shortcut } = payload;
   const data = yield select(getAttributeFromChannels('channels'));
   const channelId = generateId(data, 'channelId');
 
@@ -20,7 +21,7 @@ export function* createChannel({ payload: name }): Generator<PutEffect<any>> {
     yield delay(1000);
     yield getRefDatabase([DatabaseColumns.channels]).set([
       ...data,
-      { channelId, name },
+      { channelId, name, shortcut },
     ]);
     yield put(createChannelSuccess());
   } catch (error) {

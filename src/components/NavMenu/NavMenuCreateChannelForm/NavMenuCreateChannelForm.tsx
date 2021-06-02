@@ -14,12 +14,15 @@ import './nav-menu-create-channel-form-styles.scss';
 
 type TProps = {
   closeModal: () => void;
+  openNotifiaction: () => void;
 };
 
 const NavMenuCreateChannelForm: FunctionComponent<TProps> = ({
   closeModal,
+  openNotifiaction,
 }) => {
-  const [channelName, setChannelName] = useState('');
+  const [name, setName] = useState('');
+  const [shortcut, setShortcut] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const isPending = useSelector(isPendingSelector);
   const dispatch = useDispatch();
@@ -27,8 +30,8 @@ const NavMenuCreateChannelForm: FunctionComponent<TProps> = ({
   const onSubmitHandler = (event: Event): void => {
     event.preventDefault();
 
-    if (channelName) {
-      dispatch(createChannel(channelName));
+    if (name && shortcut) {
+      dispatch(createChannel({ name, shortcut: shortcut.toUpperCase() }));
       setIsSubmitted(true);
     }
   };
@@ -36,6 +39,7 @@ const NavMenuCreateChannelForm: FunctionComponent<TProps> = ({
   useEffect(() => {
     if (!isPending && isSubmitted) {
       closeModal();
+      openNotifiaction();
     }
     // eslint-disable-next-line
   }, [isPending, isSubmitted]);
@@ -45,9 +49,16 @@ const NavMenuCreateChannelForm: FunctionComponent<TProps> = ({
       <h2>Create channel:</h2>
       <TextField
         className="NavMenuCreateChannelForm__input"
-        onChange={(e) => setChannelName(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         label="Channel name:"
-        value={channelName}
+        value={name}
+      />
+      <TextField
+        className="NavMenuCreateChannelForm__input"
+        onChange={(e) => setShortcut(e.target.value)}
+        label="Shortcut channel name eg. (ME):"
+        inputProps={{ maxLength: 2 }}
+        value={shortcut}
       />
       <Button
         className="ProfileForm__submit-button"

@@ -4,6 +4,7 @@ import {
   TCreateChannelError,
   TFetchChannelsSuccess,
   TChannelsState,
+  TSetChannelId,
 } from './types';
 
 // store
@@ -14,7 +15,7 @@ const initialState: TChannelsState = {
   channels: null,
   error: '',
   isPending: true,
-  seletedChannelId: '',
+  selectedChannelId: '',
 };
 
 const createChannel = (state: TAuthState): TAuthState => ({
@@ -50,6 +51,14 @@ const fetchChannelsError = (state: TAuthState): TAuthState => ({
   isPending: false,
 });
 
+const setChannelId = (
+  state: TAuthState,
+  { payload: selectedChannelId }: TSetChannelId
+): TAuthState => ({
+  ...state,
+  selectedChannelId,
+});
+
 const channels = (
   state: TAuthState = initialState,
   action: TAnyAction
@@ -65,6 +74,8 @@ const channels = (
       return fetchChannelsSuccess(state, action);
     case ChannelsActionsType.fetchChannelsError:
       return fetchChannelsError(state, action);
+    case ChannelsActionsType.setChannelId:
+      return setChannelId(state, action);
     default:
       return state;
   }

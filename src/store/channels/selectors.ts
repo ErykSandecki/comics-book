@@ -1,6 +1,7 @@
 import composeFp from 'lodash/fp/compose';
 import findFp from 'lodash/fp/find';
 import getFp from 'lodash/fp/get';
+import headFp from 'lodash/head';
 import isArrayFp from 'lodash/fp/isArray';
 import { createSelector, Selector } from 'reselect';
 
@@ -18,6 +19,9 @@ export const isPendingSelector: Selector<TMainState, boolean | undefined> =
 export const channelsLoadedSelector: Selector<TMainState, boolean> =
   createSelector(channelsSelector, composeFp(isArrayFp, getFp('channels')));
 
+  export const getDefaultChannelId: Selector<TMainState, TChannel> =
+  createSelector(channelsSelector, composeFp(getFp('channelId') ,headFp, getFp('channels')));
+
 export const getAttributeFromChannels = (
   attribute: string
 ): Selector<TMainState, any> =>
@@ -31,6 +35,6 @@ export const getAttributesFromSelectedChannel = (
     channelsSelector,
     composeFp(
       findFp(({ channelId }) => channelId === selectedChannelId),
-      getFp('data')
+      getFp('channels')
     )
   );

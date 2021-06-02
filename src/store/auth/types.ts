@@ -13,7 +13,6 @@ export type TLogin = {
 
 export type TLoginSuccess = {
   type: typeof AuthActionsType.loginSuccess;
-  payload: string;
 };
 
 export type TLoginError = {

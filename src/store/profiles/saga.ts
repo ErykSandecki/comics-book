@@ -4,8 +4,9 @@ import { TProfileFormData } from './types';
 
 // others
 import { DatabaseColumns } from '../../components/Firebase/enums';
-import { TProfile } from './types';
+import { LocalStorageKey } from './../../enums';
 import { StoragePath } from '../../enums';
+import { TProfile } from './types';
 
 // services
 import afterUploadImageHandler from '../../components/Firebase/services/afterUploadImageHandler';
@@ -62,6 +63,7 @@ export function* selectProfile({
   );
 
   try {
+    yield localStorage.setItem(LocalStorageKey.indexProfile, indexProfile);
     yield getRefDatabase([
       DatabaseColumns.profiles,
       indexProfile,

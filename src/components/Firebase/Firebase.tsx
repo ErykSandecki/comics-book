@@ -3,6 +3,9 @@ import { FunctionComponent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import firebase from 'firebase';
 
+// hooks
+import useOnDisconnectHandlers from './useOnDisconnectHandlers';
+
 // others
 import { config } from './constants';
 import { DatabaseColumns } from './enums';
@@ -20,6 +23,7 @@ import databaseHandler from './services/databaseHandler';
 const Firebase: FunctionComponent<{}> = () => {
   const isAuthenticated = useSelector(isAuthenticatedSelector);
   const dispatch = useDispatch();
+  const { disconnectProfile } = useOnDisconnectHandlers();
 
   useEffect(() => {
     firebase.initializeApp(config);
@@ -36,7 +40,12 @@ const Firebase: FunctionComponent<{}> = () => {
 
     if (!isAuthenticated) {
       setTimeout(() => {
-        databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
+        databaseHandler(
+          firebase,
+          profilesActions,
+          DatabaseColumns.profiles,
+          disconnectProfile
+        );
         databaseHandler(firebase, channelsActions, DatabaseColumns.channels);
       }, 1);
     }

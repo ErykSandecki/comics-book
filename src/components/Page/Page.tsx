@@ -1,5 +1,5 @@
-import { FunctionComponent, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { FunctionComponent } from 'react';
+import { useSelector } from 'react-redux';
 
 // components
 import Chat from '../Chat/Chat';
@@ -16,22 +16,10 @@ import { setStatusProfile } from '../../store/profiles/actions';
 import './page-styles.scss';
 
 const Page: FunctionComponent<{}> = () => {
-  const dispatch = useDispatch();
   const selectedProfileId = useSelector(
     getAttributeFromProfiles('seletedProfileId')
   );
   const appDataLoaded = useSelector(appDataLoadedSelector);
-
-  const setStatusOffline = (event: Event) => {
-    event.preventDefault();
-    dispatch(setStatusProfile(false));
-    return undefined;
-  };
-
-  useEffect(() => {
-    window.addEventListener('beforeunload', setStatusOffline);
-    // eslint-disable-next-line
-  });
 
   if (!appDataLoaded) {
     return <PageLoader appDataLoaded={appDataLoaded} />;

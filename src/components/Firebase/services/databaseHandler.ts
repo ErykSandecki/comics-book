@@ -1,3 +1,4 @@
+// @ts-nocheck
 // others
 import { DatabaseColumns } from '../enums';
 
@@ -8,7 +9,8 @@ import databaseSuccessHandler from './databaseSuccessHandler';
 const databaseHandler = (
   firebase: any,
   actions: (data: any) => void,
-  ref: DatabaseColumns
+  ref: DatabaseColumns,
+  disconnectAction: () => void = () => {}
 ) => {
   firebase
     .database()
@@ -18,6 +20,7 @@ const databaseHandler = (
       (response: any) => databaseSuccessHandler(response, actions),
       databaseErrorHandler
     );
+  disconnectAction();
 };
 
 export default databaseHandler;

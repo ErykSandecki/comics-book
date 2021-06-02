@@ -65,7 +65,9 @@ export const setStatusProfile = (payload: boolean): TSetStatusProfile => ({
   payload,
 });
 
-export const setStatusProfileError = (payload: string): TSetStatusProfileError => ({
+export const setStatusProfileError = (
+  payload: string
+): TSetStatusProfileError => ({
   type: ProfilesActionsType.setStatusProfileError,
   payload,
 });

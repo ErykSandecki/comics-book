@@ -19,7 +19,7 @@ import {
   createProfileError,
   uploadImageFinished,
   selectProfileError,
-  setStatusProfileError
+  setStatusProfileError,
 } from './actions';
 import { uploadFile } from '../common/actions';
 import { getAttributeFromProfiles } from './selectors';
@@ -82,6 +82,10 @@ export function* setStatusProfile({
   const indexProfile = data.findIndex(
     ({ profileId }) => profileId === selectedProfileId
   );
+
+  if (indexProfile === -1) {
+    return;
+  }
 
   try {
     yield getRefDatabase([

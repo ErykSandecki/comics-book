@@ -1,15 +1,15 @@
 // @ts-nocheck
 // others
-import { DatabaseColumns } from './enums';
-import { LocalStorageKey } from './../../enums';
+import { DatabaseColumns } from '../Firebase/enums';
+import { LocalStorageKey } from '../../enums';
 
 // services
-import getRefDatabase from './services/getRefDatabase';
+import getRefDatabase from '../Firebase/services/getRefDatabase';
 
 const useOnDisconnectHandlers = () => {
   const disconnectProfile = () => {
     const indexProfile =
-      localStorage.getItem(LocalStorageKey.indexProfile) || -1;
+    localStorage.getItem(LocalStorageKey.indexProfile) || -1;
     return getRefDatabase([DatabaseColumns.profiles, indexProfile, 'online'])
       .onDisconnect()
       .set(false);

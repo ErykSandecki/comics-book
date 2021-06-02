@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 // components
 import Chat from '../Chat/Chat';
+import OnlineHandler from '../OnlineHandler/OnlineHandler';
 import PageHeader from '../PageHeader/PageHeader';
 import ProfilePicker from '../ProfilePickerSection/ProfilePickerSection';
 import PageLoader from '../PageLoader/PageLoader';
@@ -10,7 +11,6 @@ import PageLoader from '../PageLoader/PageLoader';
 // store
 import { appDataLoadedSelector } from '../../store/selectors';
 import { getAttributeFromProfiles } from '../../store/profiles/selectors';
-import { setStatusProfile } from '../../store/profiles/actions';
 
 // styles
 import './page-styles.scss';
@@ -31,6 +31,7 @@ const Page: FunctionComponent<{}> = () => {
 
   return (
     <div className="Page">
+      <OnlineHandler />
       <PageHeader />
       <Chat />
     </div>

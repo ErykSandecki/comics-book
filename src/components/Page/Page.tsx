@@ -7,10 +7,6 @@ import PageHeader from '../PageHeader/PageHeader';
 import ProfilePicker from '../ProfilePickerSection/ProfilePickerSection';
 import PageLoader from '../PageLoader/PageLoader';
 
-// others
-import { DatabaseColumns } from '../Firebase/enums';
-import { TProfile } from '../../store/profiles/types';
-
 // store
 import { appDataLoadedSelector } from '../../store/selectors';
 import { getAttributeFromProfiles } from '../../store/profiles/selectors';
@@ -28,9 +24,7 @@ const Page: FunctionComponent<{}> = () => {
 
   const setStatusOffline = (event: Event) => {
     event.preventDefault();
-
     dispatch(setStatusProfile(false));
-
     return undefined;
   };
 

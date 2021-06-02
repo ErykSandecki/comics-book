@@ -34,3 +34,13 @@ export const getAttributesFromSelectedProfile = (
       getFp('data')
     )
   );
+
+export const getAttributeFromSelectedProfile = (
+  attribute: string,
+  selectedProfileId: string
+): Selector<TMainState, TProfile> =>
+  // @ts-ignore
+  createSelector(
+    getAttributesFromSelectedProfile(selectedProfileId),
+    getFp(attribute)
+  );

@@ -9,7 +9,8 @@ import {
   TProfile,
   TProfileFormData,
   TUploadImageFinished,
-  TSetProfileId,
+  TSelectProfile,
+  TSetStatusProfile,
 } from './types';
 
 // store
@@ -47,7 +48,12 @@ export const uploadImageFinished = (
   payload,
 });
 
-export const setProfileId = (payload: string): TSetProfileId => ({
-  type: ProfilesActionsType.setProfileId,
+export const selectProfile = (payload: string): TSelectProfile => ({
+  type: ProfilesActionsType.selectProfile,
+  payload,
+});
+
+export const setStatusProfile = (payload: boolean): TSetStatusProfile => ({
+  type: ProfilesActionsType.setStatusProfile,
   payload,
 });

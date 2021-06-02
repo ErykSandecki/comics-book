@@ -19,8 +19,11 @@ export const isPendingSelector: Selector<TMainState, boolean | undefined> =
 export const channelsLoadedSelector: Selector<TMainState, boolean> =
   createSelector(channelsSelector, composeFp(isArrayFp, getFp('channels')));
 
-  export const getDefaultChannelId: Selector<TMainState, TChannel> =
-  createSelector(channelsSelector, composeFp(getFp('channelId') ,headFp, getFp('channels')));
+export const getDefaultChannelId: Selector<TMainState, TChannel> =
+  createSelector(
+    channelsSelector,
+    composeFp(getFp('channelId'), headFp, getFp('channels'))
+  );
 
 export const getAttributeFromChannels = (
   attribute: string

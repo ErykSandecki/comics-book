@@ -4,7 +4,7 @@ import {
   TCreateProfileError,
   TFetchProfilesSuccess,
   TProfilesState,
-  TSetProfileId,
+  TSelectProfile,
 } from './types';
 
 // store
@@ -15,7 +15,7 @@ const initialState: TProfilesState = {
   data: null,
   error: '',
   isPending: true,
-  seletedProfileId: '',
+  selectedProfileId: '',
 };
 
 const createProfile = (state: TAuthState): TAuthState => ({
@@ -53,7 +53,7 @@ const fetchProfilesError = (state: TAuthState): TAuthState => ({
 
 const setProfileId = (
   state: TAuthState,
-  { payload: seletedProfileId }: TSetProfileId
+  { payload: seletedProfileId }: TSelectProfile
 ): TAuthState => ({
   ...state,
   seletedProfileId,
@@ -74,7 +74,7 @@ const profiles = (
       return fetchProfilesSuccess(state, action);
     case ProfilesActionsType.fetchProfilesError:
       return fetchProfilesError(state, action);
-    case ProfilesActionsType.setProfileId:
+    case ProfilesActionsType.selectProfile:
       return setProfileId(state, action);
     default:
       return state;

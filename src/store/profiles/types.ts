@@ -9,7 +9,7 @@ export type TProfilesState = {
   data: Array<TProfile>;
   error: string;
   isPending: boolean;
-  seletedProfileId: string;
+  selectedProfileId: string;
 };
 
 export type TProfileFormData = {
@@ -53,7 +53,12 @@ export type TUploadImageFinished = {
   payload: TReturnablePayload;
 };
 
-export type TSetProfileId = {
-  type: typeof ProfilesActionsType.setProfileId;
+export type TSelectProfile = {
+  type: typeof ProfilesActionsType.selectProfile;
   payload: string;
+};
+
+export type TSetStatusProfile = {
+  type: typeof ProfilesActionsType.setStatusProfile;
+  payload: boolean;
 };

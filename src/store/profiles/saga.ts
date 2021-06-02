@@ -4,6 +4,7 @@ import { TProfileFormData } from './types';
 
 // others
 import { DatabaseColumns } from '../../components/Firebase/enums';
+import { TProfile } from './types';
 import { StoragePath } from '../../enums';
 
 // services
@@ -45,5 +46,47 @@ export function* createProfile({ payload }): Generator<PutEffect<any>> {
     yield backToProfileList();
   } catch (error) {
     yield put(createProfileError(error));
+  }
+}
+
+export function* selectProfile({
+  payload: profileId,
+}): Generator<PutEffect<any>> {
+  const profiles: Array<TProfile> = yield select(
+    getAttributeFromProfiles('data')
+  );
+  const profilesWithChangedStatus = profiles.map((profile) => ({
+    ...profile,
+    online: profileId === profile.profileId,
+  }));
+
+  try {
+    yield getRefDatabase([DatabaseColumns.profiles]).set(
+      profilesWithChangedStatus
+    );
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function* setStatusProfile({
+  payload: online,
+}): Generator<PutEffect<any>> {
+  const selectedProfileId = yield select(
+    getAttributeFromProfiles('seletedProfileId')
+  );
+  const data: Array<TProfile> = yield select(getAttributeFromProfiles('data'));
+  const indexProfile = data.findIndex(
+    ({ profileId }) => profileId === selectedProfileId
+  );
+
+  try {
+    yield getRefDatabase([
+      DatabaseColumns.profiles,
+      indexProfile,
+      'online',
+    ]).set(online);
+  } catch (error) {
+    console.log(error);
   }
 }

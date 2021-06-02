@@ -9,7 +9,7 @@ import { Mode } from '../ProfilePickerSection/enums';
 import { TProfile } from '../../store/profiles/types';
 
 // store
-import { setProfileId } from '../../store/profiles/actions';
+import { selectProfile } from '../../store/profiles/actions';
 import { getAttributeFromProfiles } from '../../store/profiles/selectors';
 
 // styles
@@ -41,7 +41,7 @@ const ProfilePickerList: FunctionComponent<TProps> = ({ clickHandler }) => {
         {/* @ts-ignore */}
         {profiles.map(({ name, profileId, src }) => (
           <ProfilePicker
-            clickHandler={() => dispatch(setProfileId(profileId))}
+            clickHandler={() => dispatch(selectProfile(profileId))}
             key={profileId}
             mode="select"
             name={name}

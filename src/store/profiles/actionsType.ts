@@ -8,5 +8,6 @@ export enum ProfilesActionsType {
   fetchProfilesSuccess = `${REDUCER_KEY}/fetchProfilesSuccess`,
   fetchProfilesError = `${REDUCER_KEY}/fetchProfilesError`,
   uploadImageFinished = `${REDUCER_KEY}/uploadImageFinished`,
-  setProfileId = `${REDUCER_KEY}/setProfileId`,
+  selectProfile = `${REDUCER_KEY}/selectProfile`,
+  setStatusProfile = `${REDUCER_KEY}/setStatusProfile`,
 }

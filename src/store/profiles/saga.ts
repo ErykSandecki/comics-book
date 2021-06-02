@@ -52,20 +52,21 @@ export function* createProfile({ payload }): Generator<PutEffect<any>> {
 }
 
 export function* selectProfile({
-  payload: profileId,
+  payload: selectedProfileId,
 }): Generator<PutEffect<any>> {
   const profiles: Array<TProfile> = yield select(
     getAttributeFromProfiles('data')
   );
-  const profilesWithChangedStatus = profiles.map((profile) => ({
-    ...profile,
-    online: profileId === profile.profileId,
-  }));
+  const indexProfile = profiles.findIndex(
+    ({ profileId }) => profileId === selectedProfileId
+  );
 
   try {
-    yield getRefDatabase([DatabaseColumns.profiles]).set(
-      profilesWithChangedStatus
-    );
+    yield getRefDatabase([
+      DatabaseColumns.profiles,
+      indexProfile,
+      'online',
+    ]).set(true);
   } catch (error) {
     yield put(selectProfileError(error));
   }

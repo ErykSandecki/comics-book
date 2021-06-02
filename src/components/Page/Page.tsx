@@ -7,6 +7,10 @@ import PageHeader from '../PageHeader/PageHeader';
 import ProfilePicker from '../ProfilePickerSection/ProfilePickerSection';
 import PageLoader from '../PageLoader/PageLoader';
 
+// others
+import { DatabaseColumns } from '../Firebase/enums';
+import { TProfile } from '../../store/profiles/types';
+
 // store
 import { appDataLoadedSelector } from '../../store/selectors';
 import {
@@ -15,26 +19,37 @@ import {
 } from '../../store/profiles/selectors';
 import { setStatusProfile } from '../../store/profiles/actions';
 
+// services
+import getRefDatabase from '../../components/Firebase/services/getRefDatabase';
+
 // styles
 import './page-styles.scss';
 
 const Page: FunctionComponent<{}> = () => {
-  const dispatch = useDispatch();
   const selectedProfileId = useSelector(
     getAttributeFromProfiles('seletedProfileId')
   );
-  const online = useSelector(
-    getAttributeFromSelectedProfile('online', selectedProfileId)
+  const data: Array<TProfile> = useSelector(getAttributeFromProfiles('data'));
+  const indexProfile = data?.findIndex(
+    ({ profileId }) => profileId === selectedProfileId
   );
+  const appDataLoaded = useSelector(appDataLoadedSelector);
+
+  const setStatusOffline = (event: Event) => {
+    event.preventDefault();
+    if (indexProfile !== -1) {
+      // @ts-ignore
+      getRefDatabase([DatabaseColumns.profiles, indexProfile, 'online']).set(
+        false
+      );
+    }
+    return undefined;
+  };
 
   useEffect(() => {
-    if (selectedProfileId && !online) {
-      dispatch(setStatusProfile(true));
-    }
+    window.addEventListener('beforeunload', setStatusOffline);
     // eslint-disable-next-line
-  }, [online, selectedProfileId]);
-
-  const appDataLoaded = useSelector(appDataLoadedSelector);
+  });
 
   if (!appDataLoaded) {
     return <PageLoader appDataLoaded={appDataLoaded} />;

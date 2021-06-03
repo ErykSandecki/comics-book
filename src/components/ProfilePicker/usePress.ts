@@ -18,6 +18,7 @@ const usePress = (
         });
         target.current = event.target;
       }
+
       timeout.current = setTimeout(() => {
         pressHandler(event);
         setLongPressTriggered(true);
@@ -28,12 +29,19 @@ const usePress = (
 
   const clear = useCallback(
     (_, shouldTriggerClick = true) => {
-      timeout.current && clearTimeout(timeout.current);
-      shouldTriggerClick && !longPressTriggered && clickHandler();
-      setLongPressTriggered(false);
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
+
+      if (shouldTriggerClick && !longPressTriggered) {
+        clickHandler();
+      }
+
       if (shouldPreventDefault && target.current) {
         target.current.removeEventListener('touchend', preventDefault);
       }
+
+      setLongPressTriggered(false);
     },
     [shouldPreventDefault, clickHandler, longPressTriggered]
   );
@@ -44,6 +52,7 @@ const usePress = (
     onMouseUp: (e) => clear(e),
     onMouseLeave: (e) => clear(e, false),
     onTouchEnd: (e) => clear(e),
+    clearManual: () => clear(null, false),
   };
 };
 

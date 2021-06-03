@@ -1,10 +1,19 @@
-import { FunctionComponent, useState } from 'react';
+import {
+  FunctionComponent,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 // hooks
+import useOutsideClickCard from './useOutsideClickCard';
 import usePress from './usePress';
 
 // others
+import EditIcon from '../../assets/images/icons/edit-icon.svg';
 import PlusIcon from '../../assets/images/icons/plus.svg';
+import TrashIcon from '../../assets/images/icons/trash-icon.svg';
 
 // styles
 import './profile-picker-styles.scss';
@@ -22,8 +31,12 @@ const ProfilePicker: FunctionComponent<TProps> = ({
   name,
   src,
 }) => {
+  // @ts-ignore
+  const cardRef: MutableRefObject<HTMLDivElement> = useRef(null);
+  const isFocus = useOutsideClickCard(cardRef);
   const [overlayVisible, setOverlayVisible] = useState(false);
-  const isOverlayVisible = mode === 'select' && overlayVisible;
+  const isOverlayVisible = mode === 'select' && overlayVisible && isFocus;
+
   const onPressHandler = () => {
     setOverlayVisible(true);
   };
@@ -32,19 +45,31 @@ const ProfilePicker: FunctionComponent<TProps> = ({
     clickHandler();
   };
 
-  const press = usePress(onPressHandler, onClickHandler);
+  const { clearManual, ...restPropsPress } = usePress(
+    onPressHandler,
+    onClickHandler
+  );
+
+  useEffect(() => {
+    if (!isFocus && overlayVisible) {
+      setOverlayVisible(false);
+      clearManual();
+    }
+    // eslint-disable-next-line
+  }, [isFocus, overlayVisible]);
 
   return (
     <section
       className={`ProfilePicker ${
         isOverlayVisible ? 'ProfilePicker--blur' : ''
       }`}
+      ref={cardRef}
     >
       <div
         className={`ProfilePicker__card ProfilePicker--${mode}__card ${
           isOverlayVisible ? 'ProfilePicker__card--blur' : ''
         }`}
-        {...press}
+        {...restPropsPress}
       >
         {/* TITLE */}
         <p className={`ProfilePicker__title ProfilePicker--${mode}__title`}>
@@ -62,7 +87,23 @@ const ProfilePicker: FunctionComponent<TProps> = ({
       </div>
 
       {/* OVERLAY */}
-      {isOverlayVisible && <div className="ProfilePicker__overlay"></div>}
+      {isOverlayVisible && (
+        <div className="ProfilePicker__overlay">
+          <div className="ProfilePicker__wrapper">
+            <p className="ProfilePicker__help-text">
+              Select one of the options:
+            </p>
+            <div className="ProfilePicker__options">
+              <div className="ProfilePicker__option">
+                <img alt="edit-icon" src={EditIcon} />
+              </div>
+              <div className="ProfilePicker__option">
+                <img alt="trash-icon" src={TrashIcon} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

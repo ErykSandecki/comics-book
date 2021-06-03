@@ -63,7 +63,6 @@ export function* selectProfile({
   );
 
   try {
-    yield localStorage.setItem(LocalStorageKey.indexProfile, indexProfile);
     yield getRefDatabase([
       DatabaseColumns.profiles,
       indexProfile,
@@ -78,7 +77,7 @@ export function* setStatusProfile({
   payload: online,
 }): Generator<PutEffect<any>> {
   const selectedProfileId = yield select(
-    getAttributeFromProfiles('seletedProfileId')
+    getAttributeFromProfiles('selectedProfileId')
   );
   const data: Array<TProfile> = yield select(getAttributeFromProfiles('data'));
   const indexProfile = data.findIndex(

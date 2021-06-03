@@ -25,7 +25,7 @@ type TProps = {
 const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
   const onClickHandler = (): void => setVisible(false);
   const selectedProfileId = useSelector(
-    getAttributeFromProfiles('seletedProfileId')
+    getAttributeFromProfiles('selectedProfileId')
   );
   const { name, src } = useSelector(
     getAttributesFromSelectedProfile(selectedProfileId)

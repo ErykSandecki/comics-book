@@ -9,7 +9,7 @@ import databaseSuccessHandler from './databaseSuccessHandler';
 const databaseHandler = (
   firebase: any,
   actions: (data: any) => void,
-  ref: DatabaseColumns,
+  ref: DatabaseColumns
 ) => {
   firebase
     .database()

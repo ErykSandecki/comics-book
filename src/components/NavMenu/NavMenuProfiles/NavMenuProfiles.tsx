@@ -16,8 +16,8 @@ const NavMenuProfiles: FunctionComponent = () => {
   const profiles: Array<TProfile> = useSelector(
     getAttributeFromProfiles('data')
   );
-  const seletedProfileId = useSelector(
-    getAttributeFromProfiles('seletedProfileId')
+  const selectedProfileId = useSelector(
+    getAttributeFromProfiles('selectedProfileId')
   );
 
   return (
@@ -30,7 +30,7 @@ const NavMenuProfiles: FunctionComponent = () => {
       {/* USERS */}
       <div className="NavMenuProfiles__profiles">
         {profiles
-          .filter(({ profileId }) => profileId !== seletedProfileId)
+          .filter(({ profileId }) => profileId !== selectedProfileId)
           .map(({ name, online, profileId, src }) => (
             <div className="NavMenuProfiles__profile" key={profileId}>
               <img

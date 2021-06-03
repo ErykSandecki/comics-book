@@ -53,10 +53,10 @@ const fetchProfilesError = (state: TAuthState): TAuthState => ({
 
 const setProfileId = (
   state: TAuthState,
-  { payload: seletedProfileId }: TSelectProfile
+  { payload: selectedProfileId }: TSelectProfile
 ): TAuthState => ({
   ...state,
-  seletedProfileId,
+  selectedProfileId,
 });
 
 const profiles = (

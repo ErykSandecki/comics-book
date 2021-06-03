@@ -17,7 +17,7 @@ import './page-styles.scss';
 
 const Page: FunctionComponent<{}> = () => {
   const selectedProfileId = useSelector(
-    getAttributeFromProfiles('seletedProfileId')
+    getAttributeFromProfiles('selectedProfileId')
   );
   const appDataLoaded = useSelector(appDataLoadedSelector);
 

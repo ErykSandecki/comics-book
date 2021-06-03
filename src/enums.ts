@@ -1,5 +1,4 @@
 export enum LocalStorageKey {
-  indexProfile = 'indexProfile',
   marginOffset = 'MARGIN_OFFSET',
 }
 

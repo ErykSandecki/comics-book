@@ -4,10 +4,14 @@ import { useSelector } from 'react-redux';
 // others
 import OfflineIcon from '../../../assets/images/icons/offline-icon.svg';
 import OnlineIcon from '../../../assets/images/icons/online-icon.svg';
+import { TIME_TO_COMPARE } from '../../../constants';
 import { TProfile } from '../../../store/profiles/types';
 
 // store
-import { getAttributeFromProfiles } from '../../../store/profiles/selectors';
+import {
+  getAttributeFromProfiles,
+  getAttributeFromSelectedProfile,
+} from '../../../store/profiles/selectors';
 
 // styles
 import './nav-menu-profiles-styles.scss';
@@ -20,6 +24,21 @@ const NavMenuProfiles: FunctionComponent = () => {
     getAttributeFromProfiles('selectedProfileId')
   );
 
+  //@ts-ignore
+  const lastUpdateTime: number = useSelector(
+    getAttributeFromSelectedProfile('lastUpdateTime', selectedProfileId)
+  );
+
+  const getIconPath = (
+    lastUpdateTimeProfile: number,
+    online: boolean
+  ): string => {
+    if (online && lastUpdateTime - lastUpdateTimeProfile < TIME_TO_COMPARE) {
+      return OnlineIcon;
+    }
+    return OfflineIcon;
+  };
+
   return (
     <div className="NavMenuProfiles">
       {/* HEADER */}
@@ -31,7 +50,7 @@ const NavMenuProfiles: FunctionComponent = () => {
       <div className="NavMenuProfiles__profiles">
         {profiles
           .filter(({ profileId }) => profileId !== selectedProfileId)
-          .map(({ name, online, profileId, src }) => (
+          .map(({ lastUpdateTime, name, online, profileId, src }) => (
             <div className="NavMenuProfiles__profile" key={profileId}>
               <img
                 alt={profileId}
@@ -41,7 +60,7 @@ const NavMenuProfiles: FunctionComponent = () => {
               <img
                 alt="status-icon"
                 className="NavMenuProfiles__status"
-                src={online ? OnlineIcon : OfflineIcon}
+                src={getIconPath(lastUpdateTime, online)}
               />
               <p className="NavMenuProfiles__name" key={profileId}>
                 {name}

@@ -19,6 +19,7 @@ export type TProfileFormData = {
 };
 
 export type TProfile = {
+  lastUpdateTime: number;
   name: string;
   online: boolean;
   profileId: string;
@@ -63,12 +64,12 @@ export type TSelectProfileError = {
   payload: string;
 };
 
-export type TSetStatusProfile = {
-  type: typeof ProfilesActionsType.setStatusProfile;
-  payload: boolean;
+export type TUpdateTimeProfile = {
+  type: typeof ProfilesActionsType.updateTimeProfile;
+  payload: string;
 };
 
-export type TSetStatusProfileError = {
-  type: typeof ProfilesActionsType.setStatusProfileError;
+export type TUpdateTimeProfileError = {
+  type: typeof ProfilesActionsType.updateTimeProfileError;
   payload: string;
 };

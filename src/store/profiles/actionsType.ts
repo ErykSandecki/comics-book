@@ -10,6 +10,6 @@ export enum ProfilesActionsType {
   uploadImageFinished = `${REDUCER_KEY}/uploadImageFinished`,
   selectProfile = `${REDUCER_KEY}/selectProfile`,
   selectProfileError = `${REDUCER_KEY}/selectProfileError`,
-  setStatusProfile = `${REDUCER_KEY}/setStatusProfile`,
-  setStatusProfileError = `${REDUCER_KEY}/setStatusProfileError`,
+  updateTimeProfile = `${REDUCER_KEY}/updateTimeProfile`,
+  updateTimeProfileError = `${REDUCER_KEY}/updateTimeProfileError`,
 }

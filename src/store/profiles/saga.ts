@@ -1,12 +1,12 @@
 // @ts-nocheck
-import { PutEffect, take, put, select } from 'redux-saga/effects';
+import { delay, PutEffect, put, select, take } from 'redux-saga/effects';
 import { TProfileFormData } from './types';
 
 // others
 import { DatabaseColumns } from '../../components/Firebase/enums';
-import { LocalStorageKey } from './../../enums';
 import { StoragePath } from '../../enums';
 import { TProfile } from './types';
+import { UPDATE_DELAY_TIME } from '../../constants';
 
 // services
 import afterUploadImageHandler from '../../components/Firebase/services/afterUploadImageHandler';
@@ -20,7 +20,7 @@ import {
   createProfileError,
   uploadImageFinished,
   selectProfileError,
-  setStatusProfileError,
+  updateTimeProfileError,
 } from './actions';
 import { uploadFile } from '../common/actions';
 import { getAttributeFromProfiles } from './selectors';
@@ -43,7 +43,13 @@ export function* createProfile({ payload }): Generator<PutEffect<any>> {
 
     yield getRefDatabase([DatabaseColumns.profiles]).set([
       ...data,
-      { name, online: false, profileId, src },
+      {
+        lastUpdateTime: new Date().getTime(),
+        name,
+        online: false,
+        profileId,
+        src,
+      },
     ]);
     yield put(createProfileSuccess());
     yield backToProfileList();
@@ -73,28 +79,23 @@ export function* selectProfile({
   }
 }
 
-export function* setStatusProfile({
-  payload: online,
+export function* updateTimeProfile({
+  payload: selectedProfileId,
 }): Generator<PutEffect<any>> {
-  const selectedProfileId = yield select(
-    getAttributeFromProfiles('selectedProfileId')
-  );
   const data: Array<TProfile> = yield select(getAttributeFromProfiles('data'));
   const indexProfile = data.findIndex(
     ({ profileId }) => profileId === selectedProfileId
   );
 
-  if (indexProfile === -1) {
-    return;
-  }
-
   try {
     yield getRefDatabase([
       DatabaseColumns.profiles,
       indexProfile,
-      'online',
-    ]).set(online);
+      'lastUpdateTime',
+    ]).set(new Date().getTime());
+    yield delay(UPDATE_DELAY_TIME);
+    yield updateTimeProfile({ payload: selectedProfileId });
   } catch (error) {
-    yield put(setStatusProfileError(error));
+    yield put(updateTimeProfileError(error));
   }
 }

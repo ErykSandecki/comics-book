@@ -1,4 +1,4 @@
-import { TSetStatusProfileError } from './types';
+import { TUpdateTimeProfileError } from './types';
 // others
 import { TReturnablePayload } from './../common/types';
 import {
@@ -12,7 +12,7 @@ import {
   TUploadImageFinished,
   TSelectProfile,
   TSelectProfileError,
-  TSetStatusProfile,
+  TUpdateTimeProfile,
 } from './types';
 
 // store
@@ -60,14 +60,14 @@ export const selectProfileError = (payload: string): TSelectProfileError => ({
   payload,
 });
 
-export const setStatusProfile = (payload: boolean): TSetStatusProfile => ({
-  type: ProfilesActionsType.setStatusProfile,
+export const updateTimeProfile = (payload: string): TUpdateTimeProfile => ({
+  type: ProfilesActionsType.updateTimeProfile,
   payload,
 });
 
-export const setStatusProfileError = (
+export const updateTimeProfileError = (
   payload: string
-): TSetStatusProfileError => ({
-  type: ProfilesActionsType.setStatusProfileError,
+): TUpdateTimeProfileError => ({
+  type: ProfilesActionsType.updateTimeProfileError,
   payload,
 });

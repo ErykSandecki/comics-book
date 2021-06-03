@@ -4,6 +4,7 @@ import { isMobile } from 'react-device-detect';
 
 const useOutsideClickCard = (ref: MutableRefObject<HTMLDivElement>) => {
   const [isFocus, setFocus] = useState(false);
+  const eventType = isMobile ? 'touchstart' : 'mousedown';
 
   useEffect(() => {
     const handleClickOutside = (event: Event): void => {
@@ -18,17 +19,12 @@ const useOutsideClickCard = (ref: MutableRefObject<HTMLDivElement>) => {
       }
     };
 
-    if (isMobile) {
-      document.addEventListener('touchstart', handleClickOutside);
-      return () => {
-        document.removeEventListener('touchstart', handleClickOutside);
-      };
-    } else {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }
+    document.addEventListener(eventType, handleClickOutside);
+    
+    return () => {
+      document.removeEventListener(eventType, handleClickOutside);
+    };
+    // eslint-disable-next-line
   }, [ref, isFocus]);
 
   return isFocus;

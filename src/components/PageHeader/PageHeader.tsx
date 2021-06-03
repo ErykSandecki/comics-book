@@ -8,6 +8,10 @@ import PageHeaderSettingsMenu from './PageHeaderSettingsMenu/PageHeaderSettingsM
 // others
 import HamburgerMenu from '../../assets/images/icons/hamburger-menu.svg';
 import { TChannel } from '../../store/channels/types';
+import { TProfile } from '../../store/profiles/types';
+
+// services
+import isOnlineUser from '../../services/isOnlineUser';
 
 // store
 import {
@@ -15,6 +19,10 @@ import {
   getAttributesFromSelectedChannel,
   getDefaultChannelId,
 } from '../../store/channels/selectors';
+import {
+  getAttributeFromProfiles,
+  getAttributeFromSelectedProfile,
+} from '../../store/profiles/selectors';
 
 // styles
 import './page-header-styles.scss';
@@ -28,6 +36,28 @@ const PageHeader: FunctionComponent<{}> = () => {
   const { name, shortcut }: TChannel = useSelector(
     getAttributesFromSelectedChannel(selectedChannelId)
   );
+  const profiles: Array<TProfile> = useSelector(
+    getAttributeFromProfiles('data')
+  );
+  const selectedProfileId = useSelector(
+    getAttributeFromProfiles('selectedProfileId')
+  );
+
+  //@ts-ignore
+  const lastUpdateTime: number = useSelector(
+    getAttributeFromSelectedProfile('lastUpdateTime', selectedProfileId)
+  );
+
+  const getNumberOfUsersOnline = (): number =>
+    profiles
+      .filter(({ profileId }) => profileId !== selectedProfileId)
+      .reduce(
+        (total, { lastUpdateTime: lastUpdateTimeProfile, online }) =>
+          isOnlineUser(lastUpdateTime, lastUpdateTimeProfile, online)
+            ? ++total
+            : total,
+        0
+      );
 
   return (
     <header className="PageHeader">
@@ -39,7 +69,9 @@ const PageHeader: FunctionComponent<{}> = () => {
         {/* DETAILS */}
         <div>
           <p className="PageHeader__title">#{name}</p>
-          <p className="PageHeader__users">2 Brothers online</p>
+          <p className="PageHeader__users">
+            {getNumberOfUsersOnline()} Brothers online
+          </p>
         </div>
       </div>
 

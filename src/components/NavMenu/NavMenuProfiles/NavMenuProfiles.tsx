@@ -4,8 +4,10 @@ import { useSelector } from 'react-redux';
 // others
 import OfflineIcon from '../../../assets/images/icons/offline-icon.svg';
 import OnlineIcon from '../../../assets/images/icons/online-icon.svg';
-import { TIME_TO_COMPARE } from '../../../constants';
 import { TProfile } from '../../../store/profiles/types';
+
+// services
+import isOnlineUser from '../../../services/isOnlineUser';
 
 // store
 import {
@@ -33,7 +35,7 @@ const NavMenuProfiles: FunctionComponent = () => {
     lastUpdateTimeProfile: number,
     online: boolean
   ): string => {
-    if (online && lastUpdateTime - lastUpdateTimeProfile < TIME_TO_COMPARE) {
+    if (isOnlineUser(lastUpdateTime, lastUpdateTimeProfile, online)) {
       return OnlineIcon;
     }
     return OfflineIcon;

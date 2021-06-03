@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/comics-book/static/css/main.af845e44.chunk.css",
-    "main.js": "/comics-book/static/js/main.fbdbe9ec.chunk.js",
-    "main.js.map": "/comics-book/static/js/main.fbdbe9ec.chunk.js.map",
+    "main.js": "/comics-book/static/js/main.b2e8bfc1.chunk.js",
+    "main.js.map": "/comics-book/static/js/main.b2e8bfc1.chunk.js.map",
     "runtime-main.js": "/comics-book/static/js/runtime-main.fdaa2f7e.js",
     "runtime-main.js.map": "/comics-book/static/js/runtime-main.fdaa2f7e.js.map",
-    "static/js/2.38894384.chunk.js": "/comics-book/static/js/2.38894384.chunk.js",
-    "static/js/2.38894384.chunk.js.map": "/comics-book/static/js/2.38894384.chunk.js.map",
+    "static/js/2.8645977b.chunk.js": "/comics-book/static/js/2.8645977b.chunk.js",
+    "static/js/2.8645977b.chunk.js.map": "/comics-book/static/js/2.8645977b.chunk.js.map",
     "index.html": "/comics-book/index.html",
     "static/css/main.af845e44.chunk.css.map": "/comics-book/static/css/main.af845e44.chunk.css.map",
-    "static/js/2.38894384.chunk.js.LICENSE.txt": "/comics-book/static/js/2.38894384.chunk.js.LICENSE.txt",
+    "static/js/2.8645977b.chunk.js.LICENSE.txt": "/comics-book/static/js/2.8645977b.chunk.js.LICENSE.txt",
     "static/media/back.d5208217.svg": "/comics-book/static/media/back.d5208217.svg",
     "static/media/button-picture.9659aaae.svg": "/comics-book/static/media/button-picture.9659aaae.svg",
     "static/media/close-icon.092c61d5.svg": "/comics-book/static/media/close-icon.092c61d5.svg",
@@ -27,8 +27,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fdaa2f7e.js",
-    "static/js/2.38894384.chunk.js",
+    "static/js/2.8645977b.chunk.js",
     "static/css/main.af845e44.chunk.css",
-    "static/js/main.fbdbe9ec.chunk.js"
+    "static/js/main.b2e8bfc1.chunk.js"
   ]
 }

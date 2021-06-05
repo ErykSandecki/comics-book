@@ -13,12 +13,15 @@
   &__container {
     background-color: #1d1c20;
     color: #ffffff;
-    display: flex;
     max-width: 320px;
     outline: none;
     padding: 25px;
     text-align: center;
     width: 320px;
+  }
+
+  &__wrapper {
+    display: flex;
   }
 
   &__icon {

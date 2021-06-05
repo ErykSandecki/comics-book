@@ -22,7 +22,7 @@ const ModalNewUpdates: FunctionComponent = () => {
   };
 
   useEffect(() => {
-    if (savedVersion !== CURRENT_VERSION) {
+    if (savedVersion !== CURRENT_VERSION || true) {
       setTimeout(() => {
         setVisible(true);
       }, 1000);
@@ -43,31 +43,35 @@ const ModalNewUpdates: FunctionComponent = () => {
     >
       <Fade in={visible}>
         <div className="ModalNewUpdates__container">
-          {/* ICON */}
-          <div className="ModalNewUpdates__icon">
-            <img alt="update-icon" src={UpdateIcon} />
-          </div>
+          <div className="ModalNewUpdates__wrapper">
+            {/* ICON */}
+            <div className="ModalNewUpdates__icon">
+              <img alt="update-icon" src={UpdateIcon} />
+            </div>
 
-          {/* DETAILS */}
-          <div className="ModalNewUpdates__content">
-            <h4 className="ModalNewUpdates__title">
-              New Update: {CURRENT_VERSION}:
-            </h4>
-            <ul className="ModalNewUpdates__details">
-              {UPDATE_DETAILS.map((description) => (
-                <li className="ModalNewUpdates__item" key={description}>
-                  <p className="ModalNewUpdates__description">{description}.</p>
-                </li>
-              ))}
-            </ul>
-            <Button
-              className="ModalNewUpdates__submit"
-              onClick={onClickHandler}
-              variant="outlined"
-            >
-              Understand
-            </Button>
+            {/* DETAILS */}
+            <div className="ModalNewUpdates__content">
+              <h4 className="ModalNewUpdates__title">
+                New Update: {CURRENT_VERSION}
+              </h4>
+              <ul className="ModalNewUpdates__details">
+                {UPDATE_DETAILS.map((description) => (
+                  <li className="ModalNewUpdates__item" key={description}>
+                    <p className="ModalNewUpdates__description">
+                      {description}.
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+          <Button
+            className="ModalNewUpdates__submit"
+            onClick={onClickHandler}
+            variant="outlined"
+          >
+            Understand
+          </Button>
         </div>
       </Fade>
     </Modal>

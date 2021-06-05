@@ -18,10 +18,9 @@ const useOutsideClickCard = (ref: MutableRefObject<HTMLDivElement>) => {
     }
   };
 
-
   useEffect(() => {
     document.addEventListener(eventType, handleClickOutside);
-    
+
     return () => {
       document.removeEventListener(eventType, handleClickOutside);
     };

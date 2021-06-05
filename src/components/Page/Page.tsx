@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 // components
 import Chat from '../Chat/Chat';
+import ModalNewUpdates from '../ModalNewUpdates/ModalNewUpdates';
 import OnlineHandler from '../OnlineHandler/OnlineHandler';
 import PageHeader from '../PageHeader/PageHeader';
 import ProfilePicker from '../ProfilePickerSection/ProfilePickerSection';
@@ -26,7 +27,12 @@ const Page: FunctionComponent<{}> = () => {
   }
 
   if (!selectedProfileId) {
-    return <ProfilePicker />;
+    return (
+      <>
+        <ModalNewUpdates />
+        <ProfilePicker />
+      </>
+    );
   }
 
   return (

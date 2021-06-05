@@ -4,7 +4,13 @@ import { TReturnablePayload } from './../common/types';
 // store
 import { ChannelsActionsType } from './actionsType';
 
-export type Message = {};
+export type Message = {
+  avatarSrc: string;
+  content: string;
+  profileName: string;
+  profileId: string;
+  time: number;
+};
 
 export type TChannel = {
   channelId: string;

@@ -21,7 +21,10 @@ const Chat: FunctionComponent<{}> = () => {
 
   const onInputHandler = (): void => {
     const height = inputRef.current.clientHeight;
-    messagesRef.current.style.height = `calc(100% - ${height}px)`;
+    const calculatedHeight = `calc(100% - ${height}px)`;
+
+    messagesRef.current.style.height = calculatedHeight;
+    messagesRef.current.style.maxHeight = calculatedHeight;
   };
 
   return (

@@ -34,11 +34,11 @@ const Firebase: FunctionComponent<{}> = () => {
       dispatch(fetchChannelsSuccess(payload));
     };
 
-    if (!isAuthenticated) {
+    if (isAuthenticated) {
       setTimeout(() => {
         databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
         databaseHandler(firebase, channelsActions, DatabaseColumns.channels);
-      }, 1);
+      }, 5000);
     }
     // eslint-disable-next-line
   }, [isAuthenticated]);

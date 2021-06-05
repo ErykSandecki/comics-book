@@ -31,20 +31,20 @@ const App: FunctionComponent<{}> = () => {
     []
   );
 
-  useEffect(() => {
-    const password = prompt('Please enter a password:');
-    indexedDB.deleteDatabase('firebaseLocalStorageDb');
-    dispatch(loginAction(password as string));
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   const password = prompt('Please enter a password:');
+  //   indexedDB.deleteDatabase('firebaseLocalStorageDb');
+  //   dispatch(loginAction(password as string));
+  //   // eslint-disable-next-line
+  // }, []);
 
-  if (isPending) {
-    return null;
-  }
+  // if (isPending) {
+  //   return null;
+  // }
 
-  if (errorMessage) {
-    return <ErrorPage />;
-  }
+  // if (errorMessage) {
+  //   return <ErrorPage />;
+  // }
 
   return (
     <ThemeProvider theme={theme}>

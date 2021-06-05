@@ -22,7 +22,7 @@ const ModalNewUpdates: FunctionComponent = () => {
   };
 
   useEffect(() => {
-    if (savedVersion !== CURRENT_VERSION || true) {
+    if (savedVersion !== CURRENT_VERSION) {
       setTimeout(() => {
         setVisible(true);
       }, 1000);

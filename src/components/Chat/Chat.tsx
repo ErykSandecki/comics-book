@@ -1,6 +1,6 @@
 // @ts-nocheck
-import { FunctionComponent, useContext, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { FunctionComponent, useContext, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 // components
 import ChatInput from './ChatInput/ChatInput';

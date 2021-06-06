@@ -12,9 +12,6 @@ import SendIcon from '../../../assets/images/icons/send-icon.svg';
 import SendDisabledIcon from '../../../assets/images/icons/send-disabled-icon.svg';
 import { TProfile } from '../../../store/profiles/types';
 
-// services
-import parseHTMLtoText from './parseHTMLtoText';
-
 // store
 import { sendMessage } from '../../../store/channels/actions';
 import { getAttributesFromSelectedProfile } from '../../../store/profiles/selectors';

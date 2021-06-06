@@ -41,3 +41,13 @@ export const getAttributesFromSelectedChannel = (
       getFp('channels')
     )
   );
+
+export const getAttributeFromSelectedChannel = (
+  attribute: string,
+  selectedChannelId: string
+): Selector<TMainState, any> =>
+  // @ts-ignore
+  createSelector(
+    getAttributesFromSelectedChannel(selectedChannelId),
+    getFp(attribute)
+  );

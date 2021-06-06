@@ -93,8 +93,8 @@ export function* updateTimeProfile({
       indexProfile,
       'lastUpdateTime',
     ]).set(new Date().getTime());
-    yield delay(UPDATE_DELAY_TIME);
-    yield updateTimeProfile({ payload: selectedProfileId });
+    // yield delay(UPDATE_DELAY_TIME);
+    // yield updateTimeProfile({ payload: selectedProfileId });
   } catch (error) {
     yield put(updateTimeProfileError(error));
   }

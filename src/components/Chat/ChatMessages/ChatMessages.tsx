@@ -6,6 +6,9 @@ import { useSelector } from 'react-redux';
 import EmptyMessages from '../../../assets/images/backgrounds/empty-messages.svg';
 import { TMessage } from '../../../store/channels/types';
 
+// services
+import { getDate } from './services';
+
 // store
 import { getAttributeFromSelectedChannel } from '../../../store/channels/selectors';
 
@@ -27,7 +30,7 @@ const ChatMessages: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>> =
             </p>
           </div>
         ) : (
-          messages.map(({ avatarSrc, content, profileName }, index) => (
+          messages.map(({ avatarSrc, content, profileName, time }, index) => (
             <div className="ChatMessages__wrapper" key={index}>
               <img
                 alt="avatar"
@@ -36,7 +39,7 @@ const ChatMessages: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>> =
               />
               <div className="ChatMessages__content">
                 <p className="ChatMessages__profile-name">
-                  <b>{profileName}</b>
+                  <b>{profileName}</b> {getDate(time)}
                 </p>
                 <p
                   className="ChatMessages__content"

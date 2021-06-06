@@ -9,10 +9,7 @@ import NavMenuProfiles from './NavMenuProfiles/NavMenuProfiles';
 import CloseWhiteIcon from '../../assets/images/icons/close-white-icon.svg';
 
 // store
-import {
-  getAttributeFromProfiles,
-  getAttributesFromSelectedProfile,
-} from '../../store/profiles/selectors';
+import { getAttributesFromSelectedProfile } from '../../store/profiles/selectors';
 
 // styles
 import './nav-menu-styles.scss';
@@ -24,12 +21,7 @@ type TProps = {
 
 const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
   const onClickHandler = (): void => setVisible(false);
-  const selectedProfileId = useSelector(
-    getAttributeFromProfiles('selectedProfileId')
-  );
-  const { name, src } = useSelector(
-    getAttributesFromSelectedProfile(selectedProfileId)
-  );
+  const { name, src } = useSelector(getAttributesFromSelectedProfile);
 
   return (
     <div

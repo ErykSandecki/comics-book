@@ -4,6 +4,7 @@ import {
   TCreateChannelError,
   TFetchChannelsSuccess,
   TChannelsState,
+  TSendMessageError,
   TSetChannelId,
 } from './types';
 
@@ -51,6 +52,20 @@ const fetchChannelsError = (state: TAuthState): TAuthState => ({
   isPending: false,
 });
 
+const sendMessage = (state: TAuthState): TAuthState => ({
+  ...state,
+  isPending: true,
+});
+
+const sendMessageError = (
+  state: TAuthState,
+  { payload: error }: TSendMessageError
+): TAuthState => ({
+  ...state,
+  error,
+  isPending: false,
+});
+
 const setChannelId = (
   state: TAuthState,
   { payload: selectedChannelId }: TSetChannelId
@@ -74,6 +89,10 @@ const channels = (
       return fetchChannelsSuccess(state, action);
     case ChannelsActionsType.fetchChannelsError:
       return fetchChannelsError(state, action);
+    case ChannelsActionsType.sendMessage:
+      return sendMessage(state, action);
+    case ChannelsActionsType.sendMessageError:
+      return sendMessageError(state, action);
     case ChannelsActionsType.setChannelId:
       return setChannelId(state, action);
     default:

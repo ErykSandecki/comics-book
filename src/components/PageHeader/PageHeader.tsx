@@ -14,11 +14,7 @@ import { TProfile } from '../../store/profiles/types';
 import isOnlineUser from '../../services/isOnlineUser';
 
 // store
-import {
-  getAttributeFromChannels,
-  getAttributesFromSelectedChannel,
-  getDefaultChannelId,
-} from '../../store/channels/selectors';
+import { getAttributesFromSelectedChannel } from '../../store/channels/selectors';
 import {
   getAttributeFromProfiles,
   getAttributeFromSelectedProfile,
@@ -29,12 +25,8 @@ import './page-header-styles.scss';
 
 const PageHeader: FunctionComponent<{}> = () => {
   const [visible, setVisible] = useState(false);
-  const defaultChannelId = useSelector(getDefaultChannelId);
-  const selectedChannelId =
-    useSelector(getAttributeFromChannels('selectedChannelId')) ||
-    defaultChannelId;
   const { name, shortcut }: TChannel = useSelector(
-    getAttributesFromSelectedChannel(selectedChannelId)
+    getAttributesFromSelectedChannel
   );
   const profiles: Array<TProfile> = useSelector(
     getAttributeFromProfiles('data')
@@ -45,7 +37,7 @@ const PageHeader: FunctionComponent<{}> = () => {
 
   //@ts-ignore
   const lastUpdateTime: number = useSelector(
-    getAttributeFromSelectedProfile('lastUpdateTime', selectedProfileId)
+    getAttributeFromSelectedProfile('lastUpdateTime')
   );
 
   const getNumberOfUsersOnline = (): number =>

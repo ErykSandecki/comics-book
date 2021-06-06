@@ -20,6 +20,7 @@ $calculatedHeight: calc(100% - 60px);
 
     img {
       height: auto;
+      max-width: 600px;
       width: 80%;
     }
   }
@@ -35,6 +36,10 @@ $calculatedHeight: calc(100% - 60px);
   &__wrapper {
     display: flex;
     margin-bottom: 50px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__avatar {
@@ -55,10 +60,11 @@ $calculatedHeight: calc(100% - 60px);
     }
   }
 
-  &__message {
+  &__content {
     color: #cccccc;
     font-size: 14px;
     line-height: 24px;
     margin-top: 10px;
+    white-space: pre-wrap;
   }
 }

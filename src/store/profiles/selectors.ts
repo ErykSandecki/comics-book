@@ -23,24 +23,13 @@ export const getAttributeFromProfiles = (
 ): Selector<TMainState, any> =>
   createSelector(profilesSelector, getFp(attribute));
 
-export const getAttributesFromSelectedProfile = (
-  selectedProfileId: string
-): Selector<TMainState, TProfile> =>
-  // @ts-ignore
-  createSelector(
-    profilesSelector,
-    composeFp(
-      findFp(({ profileId }) => profileId === selectedProfileId),
-      getFp('data')
-    )
+// @ts-ignore
+export const getAttributesFromSelectedProfile: Selector<TMainState, TProfile> =
+  createSelector(profilesSelector, ({ data, selectedProfileId }) =>
+    findFp(({ profileId }) => profileId === selectedProfileId, data)
   );
 
 export const getAttributeFromSelectedProfile = (
-  attribute: string,
-  selectedProfileId: string
+  attribute: string
 ): Selector<TMainState, TProfile> =>
-  // @ts-ignore
-  createSelector(
-    getAttributesFromSelectedProfile(selectedProfileId),
-    getFp(attribute)
-  );
+  createSelector(getAttributesFromSelectedProfile, getFp(attribute));

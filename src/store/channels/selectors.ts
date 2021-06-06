@@ -30,24 +30,13 @@ export const getAttributeFromChannels = (
 ): Selector<TMainState, any> =>
   createSelector(channelsSelector, getFp(attribute));
 
-export const getAttributesFromSelectedChannel = (
-  selectedChannelId: string
-): Selector<TMainState, TChannel> =>
-  // @ts-ignore
-  createSelector(
-    channelsSelector,
-    composeFp(
-      findFp(({ channelId }) => channelId === selectedChannelId),
-      getFp('channels')
-    )
+// @ts-ignore
+export const getAttributesFromSelectedChannel: Selector<TMainState, TChannel> =
+  createSelector(channelsSelector, ({ channels, selectedChannelId }) =>
+    findFp(({ channelId }) => channelId === selectedChannelId, channels)
   );
 
 export const getAttributeFromSelectedChannel = (
-  attribute: string,
-  selectedChannelId: string
+  attribute: string
 ): Selector<TMainState, any> =>
-  // @ts-ignore
-  createSelector(
-    getAttributesFromSelectedChannel(selectedChannelId),
-    getFp(attribute)
-  );
+  createSelector(getAttributesFromSelectedChannel, getFp(attribute));

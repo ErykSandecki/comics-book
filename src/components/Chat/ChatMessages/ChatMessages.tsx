@@ -4,26 +4,18 @@ import { useSelector } from 'react-redux';
 
 // others
 import EmptyMessages from '../../../assets/images/backgrounds/empty-messages.svg';
-import { Message } from '../../../store/channels/types';
+import { TMessage } from '../../../store/channels/types';
 
 // store
-import {
-  getAttributeFromChannels,
-  getAttributeFromSelectedChannel,
-} from '../../../store/channels/selectors';
+import { getAttributeFromSelectedChannel } from '../../../store/channels/selectors';
 
 // styles
 import './chat-messages-styles.scss';
 
 const ChatMessages: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>> =
   forwardRef<HTMLDivElement, {}>((_, ref) => {
-    const selectedChannelId = useSelector(
-      getAttributeFromChannels('selectedChannelId')
-    );
-    const messages: Array<Message> =
-      useSelector(
-        getAttributeFromSelectedChannel('messages', selectedChannelId)
-      ) || [];
+    const messages: Array<TMessage> =
+      useSelector(getAttributeFromSelectedChannel('messages')) || [];
 
     return (
       <section className="ChatMessages" ref={ref}>
@@ -35,15 +27,21 @@ const ChatMessages: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>> =
             </p>
           </div>
         ) : (
-          <div className="ChatMessages__wrapper">
-            <img alt="avatar" className="ChatMessages__avatar" />
-            <div className="ChatMessages__content">
-              <p className="ChatMessages__profile-name">
-                <b></b> date
-              </p>
-              <p className="ChatMessages__message"></p>
+          messages.map(({ avatarSrc, content, profileName }, index) => (
+            <div className="ChatMessages__wrapper" key={index}>
+              <img
+                alt="avatar"
+                className="ChatMessages__avatar"
+                src={avatarSrc}
+              />
+              <div className="ChatMessages__content">
+                <p className="ChatMessages__profile-name">
+                  <b>{profileName}</b>
+                </p>
+                <p className="ChatMessages__content">{content}</p>
+              </div>
             </div>
-          </div>
+          ))
         )}
       </section>
     );

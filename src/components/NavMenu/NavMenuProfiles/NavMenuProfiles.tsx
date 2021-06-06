@@ -28,7 +28,7 @@ const NavMenuProfiles: FunctionComponent = () => {
 
   //@ts-ignore
   const lastUpdateTime: number = useSelector(
-    getAttributeFromSelectedProfile('lastUpdateTime', selectedProfileId)
+    getAttributeFromSelectedProfile('lastUpdateTime')
   );
 
   const getIconPath = (

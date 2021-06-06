@@ -4,7 +4,7 @@ import { TReturnablePayload } from './../common/types';
 // store
 import { ChannelsActionsType } from './actionsType';
 
-export type Message = {
+export type TMessage = {
   avatarSrc: string;
   content: string;
   profileName: string;
@@ -14,7 +14,7 @@ export type Message = {
 
 export type TChannel = {
   channelId: string;
-  messages: Array<Message>;
+  messages: Array<TMessage>;
   name: string;
   shortcut: string;
 };
@@ -47,6 +47,20 @@ export type TFetchChannelsSuccess = {
 
 export type TFetchChannelsError = {
   type: typeof ChannelsActionsType.fetchChannelsError;
+};
+
+export type TSendMessage = {
+  type: typeof ChannelsActionsType.sendMessage;
+  payload: TMessage;
+};
+
+export type TSendMessageSuccess = {
+  type: typeof ChannelsActionsType.sendMessageSuccess;
+};
+
+export type TSendMessageError = {
+  type: typeof ChannelsActionsType.sendMessageError;
+  payload: string;
 };
 
 export type TSetChannelId = {

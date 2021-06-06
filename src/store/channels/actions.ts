@@ -2,10 +2,14 @@
 import {
   TChannel,
   TCreateChannel,
-  TCreateChannelSuccess,
   TCreateChannelError,
-  TFetchChannelsSuccess,
+  TCreateChannelSuccess,
   TFetchChannelsError,
+  TFetchChannelsSuccess,
+  TMessage,
+  TSendMessage,
+  TSendMessageError,
+  TSendMessageSuccess,
   TSetChannelId,
 } from './types';
 
@@ -37,6 +41,20 @@ export const fetchChannelsSuccess = (
 
 export const fetchChannelsError = (): TFetchChannelsError => ({
   type: ChannelsActionsType.fetchChannelsError,
+});
+
+export const sendMessage = (payload: TMessage): TSendMessage => ({
+  type: ChannelsActionsType.sendMessage,
+  payload,
+});
+
+export const sendMessageSuccess = (): TSendMessageSuccess => ({
+  type: ChannelsActionsType.sendMessageSuccess,
+});
+
+export const sendMessageError = (payload: string): TSendMessageError => ({
+  type: ChannelsActionsType.sendMessageError,
+  payload,
 });
 
 export const setChannelId = (payload: string): TSetChannelId => ({

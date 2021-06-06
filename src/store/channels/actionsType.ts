@@ -8,5 +8,8 @@ export enum ChannelsActionsType {
   fetchChannelsSuccess = `${REDUCER_KEY}/fetchChannelsSuccess`,
   fetchChannelsError = `${REDUCER_KEY}/fetchChannelsError`,
   uploadImageFinished = `${REDUCER_KEY}/uploadImageFinished`,
+  sendMessage = `${REDUCER_KEY}/sendMessage`,
+  sendMessageSuccess = `${REDUCER_KEY}/sendMessageSuccess`,
+  sendMessageError = `${REDUCER_KEY}/sendMessageError`,
   setChannelId = `${REDUCER_KEY}/setChannelId`,
 }

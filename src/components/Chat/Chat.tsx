@@ -19,13 +19,13 @@ import { getAttributeFromSelectedChannel } from '../../store/channels/selectors'
 import './chat-styles.scss';
 
 const Chat: FunctionComponent<{}> = () => {
-  const inputRef = useRef(null);
+  const chatInputRef = useRef(null);
   const messagesRef = useRef(null);
   const name = useSelector(getAttributeFromSelectedChannel('name'));
   const { margin }: TContext = useContext(Context);
 
-  const onInputHandler = (): void => {
-    const height = inputRef.current.clientHeight;
+  const updateHeightMessages = (): void => {
+    const height = chatInputRef.current.clientHeight;
     const calculatedHeight = `calc(100% - ${height}px)`;
 
     messagesRef.current.style.height = calculatedHeight;
@@ -40,8 +40,8 @@ const Chat: FunctionComponent<{}> = () => {
       <ChatMessages ref={messagesRef} />
       <ChatInput
         channelName={name}
-        inputHandler={onInputHandler}
-        ref={inputRef}
+        ref={chatInputRef}
+        updateHeightMessages={updateHeightMessages}
       />
     </section>
   );

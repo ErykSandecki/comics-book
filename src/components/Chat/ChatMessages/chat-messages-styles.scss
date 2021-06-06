@@ -67,4 +67,8 @@ $calculatedHeight: calc(100% - 60px);
     margin-top: 10px;
     white-space: pre-wrap;
   }
+
+  &__break-line {
+    height: 20px;
+  }
 }

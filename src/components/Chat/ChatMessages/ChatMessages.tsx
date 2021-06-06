@@ -38,7 +38,10 @@ const ChatMessages: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>> =
                 <p className="ChatMessages__profile-name">
                   <b>{profileName}</b>
                 </p>
-                <p className="ChatMessages__content">{content}</p>
+                <p
+                  className="ChatMessages__content"
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
               </div>
             </div>
           ))

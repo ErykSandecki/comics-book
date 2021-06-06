@@ -1,5 +1,10 @@
 // @ts-nocheck
-import { forwardRef, ForwardRefExoticComponent, RefAttributes } from 'react';
+import {
+  forwardRef,
+  ForwardRefExoticComponent,
+  RefAttributes,
+  useEffect,
+} from 'react';
 import { useSelector } from 'react-redux';
 
 // others
@@ -17,8 +22,14 @@ import './chat-messages-styles.scss';
 
 const ChatMessages: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>> =
   forwardRef<HTMLDivElement, {}>((_, ref) => {
+    // eslint-disable-next-line
     const messages: Array<TMessage> =
       useSelector(getAttributeFromSelectedChannel('messages')) || [];
+
+    useEffect(() => {
+      const { current } = ref;
+      current.scrollTo({ top: current.scrollHeight, behavior: 'smooth' });
+    }, [messages, ref]);
 
     return (
       <section className="ChatMessages" ref={ref}>

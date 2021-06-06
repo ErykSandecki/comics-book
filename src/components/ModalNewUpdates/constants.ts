@@ -7,5 +7,6 @@ export const UPDATE_DETAILS = [
   'Ability to write on the channel',
   'Status on the number of active brothers-in-law',
   'Ability to send messages',
+  'Determination of date of last message',
 ];
 export const CURRENT_VERSION = '1.0.0';

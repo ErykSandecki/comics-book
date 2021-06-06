@@ -4,6 +4,7 @@ import {
   ForwardRefExoticComponent,
   RefAttributes,
   useEffect,
+  useState,
 } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -15,24 +16,52 @@ import { TMessage } from '../../../store/channels/types';
 import { getDate } from './services';
 
 // store
-import { getAttributeFromSelectedChannel } from '../../../store/channels/selectors';
+import {
+  getAttributeFromChannels,
+  getAttributeFromSelectedChannel,
+} from '../../../store/channels/selectors';
 
 // styles
 import './chat-messages-styles.scss';
 
 const ChatMessages: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>> =
   forwardRef<HTMLDivElement, {}>((_, ref) => {
+    const [automaticScroll, setAutomaticScroll] = useState(true);
+    const selectedChannelId = useSelector(
+      getAttributeFromChannels('selectedChannelId')
+    );
     // eslint-disable-next-line
     const messages: Array<TMessage> =
       useSelector(getAttributeFromSelectedChannel('messages')) || [];
 
+    const onScrollHandler = () => {
+      const { current } = ref;
+      const maxScrollTop = current.scrollHeight - current.clientHeight;
+
+      if (current.scrollTop === maxScrollTop) {
+        setAutomaticScroll(true);
+      } else {
+        setAutomaticScroll(false);
+      }
+    };
+
+    useEffect(() => {
+      const { current } = ref;
+      if (automaticScroll) {
+        current.scrollTo({ top: current.scrollHeight, behavior: 'smooth' });
+      }
+      // eslint-disable-next-line
+    }, [messages, ref]);
+
     useEffect(() => {
       const { current } = ref;
       current.scrollTo({ top: current.scrollHeight, behavior: 'smooth' });
-    }, [messages, ref]);
+      setAutomaticScroll(true);
+      // eslint-disable-next-line
+    }, [selectedChannelId]);
 
     return (
-      <section className="ChatMessages" ref={ref}>
+      <section className="ChatMessages" onScroll={onScrollHandler} ref={ref}>
         {messages.length === 0 ? (
           <div className="ChatMessages__empty">
             <img alt="empty-messages" src={EmptyMessages} />

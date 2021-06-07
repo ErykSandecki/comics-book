@@ -17,14 +17,11 @@ export function* setStatusTyping({
   payload,
 }: TTyping & { mode: 'add' | 'remove' }): Generator<PutEffect<any>> {
   const { channelId, mode, profileId, profileName } = payload;
-  const typings: Array<TChannel> = (yield select(
-    getAttributeFromTypings('typings')
-  )) || [];
+  const typings: Array<TChannel> =
+    (yield select(getAttributeFromTypings('typings'))) || [];
 
   try {
-    yield getRefDatabase([
-      DatabaseColumns.typings,
-    ]).set(
+    yield getRefDatabase([DatabaseColumns.typings]).set(
       mode === 'add'
         ? [...typings, { channelId, profileId, profileName }]
         : getTypingsWithRemovedItem(typings, profileId)

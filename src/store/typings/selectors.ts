@@ -17,7 +17,7 @@ export const isPendingSelector: Selector<TMainState, boolean | undefined> =
 export const typingsLoadedSelector: Selector<TMainState, boolean> =
   createSelector(typingsSelector, composeFp(isArrayFp, getFp('typings')));
 
-  export const getAttributeFromTypings = (
-    attribute: string
-  ): Selector<TMainState, any> =>
-    createSelector(typingsSelector, getFp(attribute));
+export const getAttributeFromTypings = (
+  attribute: string
+): Selector<TMainState, any> =>
+  createSelector(typingsSelector, getFp(attribute));

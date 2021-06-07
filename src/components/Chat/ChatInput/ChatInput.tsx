@@ -3,10 +3,15 @@ import {
   forwardRef,
   ForwardRefExoticComponent,
   RefAttributes,
+  useCallback,
+  useEffect,
   useRef,
   useState,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+// hooks
+import useTyping from './useTyping';
 
 // others
 import SendIcon from '../../../assets/images/icons/send-icon.svg';
@@ -42,6 +47,7 @@ const ChatInput: ForwardRefExoticComponent<
       profileId,
     }: TProfile = useSelector(getAttributesFromSelectedProfile);
     const inputText = inputRef.current?.innerText.trim() || '';
+    const turnOnTyping = useTyping(profileId, profileName);
 
     const onBlurHandler = (): void => {
       if (!inputText) {
@@ -52,9 +58,11 @@ const ChatInput: ForwardRefExoticComponent<
     const onInputHandler = (event: Event): void => {
       const { target } = event;
 
+      turnOnTyping();
       setContent(target.innerHTML);
       updateHeightMessages();
     };
+    // eslint-disable-next-line
 
     const onSubmitHandler = () => {
       if (content) {
@@ -67,11 +75,11 @@ const ChatInput: ForwardRefExoticComponent<
             time: new Date().getTime(),
           })
         );
-        reset();
+        resetAfterSubmit();
       }
     };
 
-    const reset = () => {
+    const resetAfterSubmit = () => {
       inputRef.current.innerText = '';
 
       updateHeightMessages();

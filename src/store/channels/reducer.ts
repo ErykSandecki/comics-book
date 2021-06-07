@@ -6,6 +6,7 @@ import {
   TChannelsState,
   TSendMessageError,
   TSetChannelId,
+  TSetStatusTypingError,
 } from './types';
 
 // store
@@ -74,6 +75,14 @@ const setChannelId = (
   selectedChannelId,
 });
 
+const setStatusTypingError = (
+  state: TAuthState,
+  { payload: error }: TSetStatusTypingError
+): TAuthState => ({
+  ...state,
+  error,
+});
+
 const channels = (
   state: TAuthState = initialState,
   action: TAnyAction
@@ -95,6 +104,8 @@ const channels = (
       return sendMessageError(state, action);
     case ChannelsActionsType.setChannelId:
       return setChannelId(state, action);
+    case ChannelsActionsType.setStatusTypingError:
+      return setStatusTypingError(state, action);
     default:
       return state;
   }

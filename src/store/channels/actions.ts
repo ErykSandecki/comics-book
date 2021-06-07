@@ -11,6 +11,9 @@ import {
   TSendMessageError,
   TSendMessageSuccess,
   TSetChannelId,
+  TSetStatusTyping,
+  TSetStatusTypingError,
+  TTyping,
 } from './types';
 
 // store
@@ -59,5 +62,19 @@ export const sendMessageError = (payload: string): TSendMessageError => ({
 
 export const setChannelId = (payload: string): TSetChannelId => ({
   type: ChannelsActionsType.setChannelId,
+  payload,
+});
+
+export const setStatusTyping = (
+  payload: TTyping & { mode: 'add' | 'remove' }
+): TSetStatusTyping => ({
+  type: ChannelsActionsType.setStatusTyping,
+  payload,
+});
+
+export const setStatusTypingError = (
+  payload: string
+): TSetStatusTypingError => ({
+  type: ChannelsActionsType.setStatusTyping,
   payload,
 });

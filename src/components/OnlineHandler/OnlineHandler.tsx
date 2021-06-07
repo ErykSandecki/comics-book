@@ -3,7 +3,7 @@ import { FunctionComponent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // hooks
-import useOnDisconnectHandlers from './useOnDisconnectHandlers';
+import useSubscribesDisconnectHandlers from './useSubscribesOnDisconnectHandlers';
 
 // others
 import { TProfile } from '../../store/profiles/types';
@@ -23,10 +23,10 @@ const OnlineHandler: FunctionComponent = () => {
   const indexProfile = profiles.findIndex(
     ({ profileId }) => profileId === selectedProfileId
   );
-  const { disconnectProfile } = useOnDisconnectHandlers(indexProfile);
+  const { subscribeProfile } = useSubscribesDisconnectHandlers(indexProfile);
 
   useEffect(() => {
-    disconnectProfile();
+    subscribeProfile();
     dispatch(updateTimeProfile(selectedProfileId));
     // eslint-disable-next-line
   }, []);

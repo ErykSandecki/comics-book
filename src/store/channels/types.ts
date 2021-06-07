@@ -12,10 +12,16 @@ export type TMessage = {
   time: number;
 };
 
+export type TTyping = {
+  profileName: string;
+  profileId: string;
+};
+
 export type TChannel = {
   channelId: string;
-  messages: Array<TMessage>;
+  messages?: Array<TMessage>;
   name: string;
+  typings?: Array<TTyping>;
   shortcut: string;
 };
 
@@ -71,4 +77,14 @@ export type TSetChannelId = {
 export type TUploadImageFinished = {
   type: typeof ChannelsActionsType.uploadImageFinished;
   payload: TReturnablePayload;
+};
+
+export type TSetStatusTyping = {
+  type: typeof ChannelsActionsType.setStatusTyping;
+  payload: TTyping & { mode: 'add' | 'remove' };
+};
+
+export type TSetStatusTypingError = {
+  type: typeof ChannelsActionsType.setStatusTypingError;
+  payload: string;
 };

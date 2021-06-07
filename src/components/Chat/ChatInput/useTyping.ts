@@ -1,19 +1,26 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import debounce from 'lodash/debounce';
 
 // store
-import { setStatusTyping } from '../../../store/channels/actions';
+import { getAttributeFromChannels } from '../../../store/channels/selectors';
+import { setStatusTyping } from '../../../store/typings/actions';
 
 const useTyping = (profileId: string, profileName: string) => {
   const [isTyping, setIsTyping] = useState(false);
   const dispatch = useDispatch();
+  const channelId = useSelector(getAttributeFromChannels('selectedChannelId'));
+  const payload = {
+    profileId,
+    profileName,
+    channelId,
+  };
 
   // eslint-disable-next-line
   const turnOffTyping = useCallback(
     debounce(() => {
       setIsTyping(false);
-      dispatch(setStatusTyping({ mode: 'remove', profileId, profileName }));
+      dispatch(setStatusTyping({ ...payload, mode: 'remove' }));
     }, 1000),
     []
   );
@@ -23,9 +30,8 @@ const useTyping = (profileId: string, profileName: string) => {
       setIsTyping(true);
       dispatch(
         setStatusTyping({
+          ...payload,
           mode: 'add',
-          profileId,
-          profileName,
         })
       );
     }
@@ -33,7 +39,7 @@ const useTyping = (profileId: string, profileName: string) => {
   };
 
   useEffect(() => {
-    dispatch(setStatusTyping({ mode: 'remove', profileId, profileName }));
+    dispatch(setStatusTyping({ ...payload, mode: 'remove' }));
     // eslint-disable-next-line
   }, []);
 

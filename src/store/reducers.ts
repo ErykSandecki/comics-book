@@ -5,8 +5,9 @@ import { combineReducers } from 'redux';
 import auth from './auth/reducer';
 import channels from './channels/reducer';
 import profiles from './profiles/reducer';
+import typings from './typings/reducer';
 
-const reducers = { auth, channels, profiles };
+const reducers = { auth, channels, profiles, typings };
 
 const createRootReducer = () =>
   combineReducers({

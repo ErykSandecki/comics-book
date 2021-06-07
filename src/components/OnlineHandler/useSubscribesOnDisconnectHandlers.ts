@@ -13,7 +13,6 @@ import { getAttributeFromSelectedChannel } from '../../store/channels/selectors'
 
 const useSubscribesDisconnectHandlers = (
   indexProfile: number,
-  indexChannel: number,
   selectedProfileId: string
 ) => {
   const typings = useSelector(getAttributeFromSelectedChannel('typings')) || [];
@@ -23,13 +22,13 @@ const useSubscribesDisconnectHandlers = (
       .onDisconnect()
       .set(false);
 
-  const subscribeChannels = () =>
-    getRefDatabase([DatabaseColumns.channels, indexChannel, 'typings'])
+  const subscribeTypings = () =>
+    getRefDatabase([DatabaseColumns.typings])
       .onDisconnect()
       .set(getTypingsWithRemovedItem(typings, selectedProfileId));
 
   return {
-    subscribeChannels,
+    subscribeTypings,
     subscribeProfile,
   };
 };

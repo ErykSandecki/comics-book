@@ -13,6 +13,7 @@ import { TProfile } from '../../store/profiles/types';
 import { isAuthenticatedSelector } from '../../store/selectors';
 import { fetchChannelsSuccess } from '../../store/channels/actions';
 import { fetchProfilesSuccess } from '../../store/profiles/actions';
+import { fetchTypingsSuccess } from '../../store/typings/actions';
 
 // services
 import databaseHandler from './services/databaseHandler';
@@ -33,11 +34,15 @@ const Firebase: FunctionComponent<{}> = () => {
     const channelsActions = (payload: Array<TChannel>): void => {
       dispatch(fetchChannelsSuccess(payload));
     };
+    const typingsActions = (payload: Array<TChannel>): void => {
+      dispatch(fetchTypingsSuccess(payload));
+    };
 
     if (isAuthenticated) {
       setTimeout(() => {
         databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
         databaseHandler(firebase, channelsActions, DatabaseColumns.channels);
+        databaseHandler(firebase, typingsActions, DatabaseColumns.typings);
       }, 5000);
     }
     // eslint-disable-next-line

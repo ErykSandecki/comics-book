@@ -3,8 +3,6 @@ import {
   forwardRef,
   ForwardRefExoticComponent,
   RefAttributes,
-  useCallback,
-  useEffect,
   useRef,
   useState,
 } from 'react';

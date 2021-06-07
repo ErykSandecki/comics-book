@@ -10,6 +10,7 @@ import {
   isPendingSelector as isPendingAuthSelector,
 } from './auth/selectors';
 import { profilesLoadedSelector } from './profiles/selectors';
+import { typingsLoadedSelector } from './typings/selectors';
 
 export const isAuthenticatedSelector: Selector<TMainState, boolean> =
   createSelector(
@@ -22,5 +23,7 @@ export const appDataLoadedSelector: Selector<TMainState, boolean> =
   createSelector(
     profilesLoadedSelector,
     channelsLoadedSelector,
-    (profilesData, channelsData) => profilesData && channelsData
+    typingsLoadedSelector,
+    (profilesData, channelsData, typingsData) =>
+      profilesData && channelsData && typingsData
   );

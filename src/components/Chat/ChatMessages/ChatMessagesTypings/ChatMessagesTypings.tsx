@@ -11,6 +11,7 @@ import {
   getAttributeFromProfiles,
   getAttributeFromSelectedProfile,
 } from '../../../../store/profiles/selectors';
+import { getAttributeFromChannels } from '../../../../store/channels/selectors';
 
 // services
 import isOnlineUser from '../../../../services/isOnlineUser';
@@ -26,17 +27,21 @@ const ChatMessagesTypings: FunctionComponent<TProps> = ({ typings }) => {
   const selectedProfileId = useSelector(
     getAttributeFromProfiles('selectedProfileId')
   );
+  const selectedChannelId = useSelector(
+    getAttributeFromChannels('selectedChannelId')
+  );
   const lastUpdateTime: number = useSelector(
     getAttributeFromSelectedProfile('lastUpdateTime')
   );
   const filteredProfiles = useCallback(
     () =>
       typings.filter(
-        ({ profileId, time: lastUpdateTimeProfile }) =>
+        ({ channelId, profileId, time: lastUpdateTimeProfile }) =>
           profileId !== selectedProfileId &&
+          channelId === selectedChannelId &&
           isOnlineUser(lastUpdateTime, lastUpdateTimeProfile, true)
       ),
-    [lastUpdateTime, selectedProfileId, typings]
+    [lastUpdateTime, selectedChannelId, selectedProfileId, typings]
   );
 
   const getDescription = (): string =>

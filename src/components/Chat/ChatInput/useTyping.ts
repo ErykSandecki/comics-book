@@ -24,8 +24,7 @@ const useTyping = (profileId: string, profileName: string) => {
         setStatusTyping({
           ...payload,
           mode: 'remove',
-          time: -1
-          
+          time: -1,
         })
       );
     }, 1000),

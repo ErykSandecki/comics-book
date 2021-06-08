@@ -12,14 +12,21 @@ const getFormatedDate = (date: Date): string =>
     date.getMonth() + 1
   )}-${shouldBeWithZero(date.getDate())}`;
 
+const getFormatedTime = (date: Date): string =>
+  `${shouldBeWithZero(date.getHours())}:${shouldBeWithZero(date.getMinutes())}`;
+
 export const getDate = (time: number): string => {
   const dateFromMessage = new Date(getFormatedDate(new Date(time)));
   const currentDate = new Date(getFormatedDate(new Date()));
-  const diffDays = Math.round(
+  const diffrentDays = Math.round(
     Math.abs((currentDate - dateFromMessage) / oneDay)
   );
 
-  return diffDays < DAYS_MEANINGS.length
-    ? DAYS_MEANINGS[diffDays]
+  if (diffrentDays === 0) {
+    return getFormatedTime(new Date());
+  }
+
+  return diffrentDays < DAYS_MEANINGS.length
+    ? DAYS_MEANINGS[diffrentDays]
     : getFormatedDate(new Date(time));
 };

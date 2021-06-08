@@ -39,7 +39,7 @@ const Page: FunctionComponent<{}> = () => {
   }, [appDataLoaded, selectedChannelId]);
 
   if (!appDataLoaded) {
-    return <PageLoader appDataLoaded={appDataLoaded} />;
+    return <PageLoader />;
   }
 
   if (!selectedProfileId) {

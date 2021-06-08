@@ -1,92 +1,103 @@
-$animationDuration: 1.2s;
-$color: #ffffff !default;
-$circleCount: 12;
-$size: 45px !default;
-
-@keyframes backInDown {
+@keyframes backInAndOutDown {
   0% {
     transform: translateY(-1200px) scale(0.7);
     opacity: 0.7;
   }
 
-  80% {
+  15% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  25% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  75% {
     transform: translateY(0px) scale(0.7);
     opacity: 0.7;
   }
 
   100% {
-    transform: scale(1);
-    opacity: 1;
+    transform: translateY(700px) scale(0.7);
+    opacity: 0.7;
   }
 }
 
-.backInDown {
-  animation-name: backInDown;
-}
+@keyframes enterTitle {
+  0% {
+    max-width: 0;
+  }
 
-@keyframes circleDelay {
-  0%,
-  39%,
+  50% {
+    max-width: 0;
+  }
+
   100% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
+    max-width: 200px;
   }
 }
 
 .PageLoader {
-  animation: 1s cubic-bezier(0.39, 0.575, 0.565, 1) backInDown;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   justify-content: center;
 
-  &__title {
-    color: white;
-    font-size: 25px;
-    margin-bottom: 25px;
-    text-align: center;
-  }
-
-  &__spinner {
-    height: $size;
-    margin-top: 25px;
-    position: relative;
-    width: $size;
-  }
-
-  &__circle {
+  &__content {
+    animation: 5s cubic-bezier(0.39, 0.575, 0.565, 1) backInAndOutDown;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
     height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
   }
 
-  &__circle:before {
-    animation: circleDelay $animationDuration infinite ease-in-out both;
-    background-color: $color;
-    border-radius: 100%;
-    content: '';
-    display: block;
-    height: 15%;
+  &__title {
+    animation: 2s cubic-bezier(0.39, 0.575, 0.565, 1) enterTitle;
+    color: rgb(190, 190, 190);
+    font-size: 20px;
     margin: 0 auto;
-    width: 15%;
+    margin-bottom: 25px;
+    max-width: 200px;
+    overflow: hidden;
+    text-align: center;
+    transition: 1s linear;
+    white-space: nowrap;
   }
 
-  @for $i from 2 through $circleCount {
-    &__circle--#{$i} {
-      transform: rotate((360deg / $circleCount * ($i - 1)));
+  &__image-welcome {
+    max-width: 400px;
+    height: auto;
+    transition: 1s;
+    width: 80%;
+  }
+
+  &__spinner {
+    align-items: center;
+    display: none;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    &--show {
+      display: flex;
     }
   }
 
-  @for $i from 2 through $circleCount {
-    &__circle--#{$i}:before {
-      animation-delay: (
-        -$animationDuration + $animationDuration / $circleCount * ($i - 1)
-      );
+  @media screen and (min-width: 768px) {
+    &__title {
+      font-size: 25px;
+
+      &--show {
+        max-width: 220px;
+      }
     }
   }
 }

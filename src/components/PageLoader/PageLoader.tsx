@@ -1,4 +1,7 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
+
+// components
+import Spinner from '../Spinner/Spinner';
 
 // others
 import Gentleman from '../../assets/images/backgrounds/gentleman.svg';
@@ -6,26 +9,37 @@ import Gentleman from '../../assets/images/backgrounds/gentleman.svg';
 // styles
 import './page-loader-styles.scss';
 
-type TProps = {
-  appDataLoaded: boolean;
-};
+const PageLoader: FunctionComponent = () => {
+  const [visibleContent, setVisibleContent] = useState(true);
 
-const PageLoader: FunctionComponent<TProps> = ({ appDataLoaded }) => (
-  <div className="PageLoader">
-    <h2 className="PageLoader__title">WELCOME GENTLEMAN</h2>
-    {/* LOGO */}
-    <img alt="gentleman-logo" src={Gentleman} />
+  useEffect(() => {
+    setTimeout(() => setVisibleContent(false), 5000);
+  }, []);
 
-    {/* SPINNER */}
-    <div className="PageLoader__spinner">
-      {Array.from(Array(12)).map((_, index) => (
-        <div
-          className={`PageLoader__circle PageLoader__circle--${index + 1}`}
-          key={index}
-        ></div>
-      ))}
+  return (
+    <div className="PageLoader">
+      {/* CONTENT */}
+      {visibleContent && (
+        <div className="PageLoader__content">
+          <h2 className="PageLoader__title">Welcome Gentleman:</h2>
+          <img
+            alt="gentleman-logo"
+            className="PageLoader__image-welcome"
+            src={Gentleman}
+          />
+        </div>
+      )}
+
+      {/* SPINNER */}
+      <div
+        className={`PageLoader__spinner ${
+          !visibleContent ? 'PageLoader__spinner--show' : ''
+        }`}
+      >
+        <Spinner />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default PageLoader;

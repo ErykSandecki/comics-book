@@ -40,7 +40,7 @@
   }
 
   100% {
-    max-width: 200px;
+    max-width: 260px;
   }
 }
 
@@ -65,7 +65,7 @@
     font-size: 20px;
     margin: 0 auto;
     margin-bottom: 25px;
-    max-width: 200px;
+    max-width: 260px;
     overflow: hidden;
     text-align: center;
     transition: 1s linear;
@@ -88,16 +88,6 @@
 
     &--show {
       display: flex;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    &__title {
-      font-size: 25px;
-
-      &--show {
-        max-width: 220px;
-      }
     }
   }
 }

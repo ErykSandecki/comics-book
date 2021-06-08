@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/comics-book/static/css/main.e58ecdc0.chunk.css",
-    "main.js": "/comics-book/static/js/main.5f98f967.chunk.js",
-    "main.js.map": "/comics-book/static/js/main.5f98f967.chunk.js.map",
+    "main.css": "/comics-book/static/css/main.157e4310.chunk.css",
+    "main.js": "/comics-book/static/js/main.7b4d8a03.chunk.js",
+    "main.js.map": "/comics-book/static/js/main.7b4d8a03.chunk.js.map",
     "runtime-main.js": "/comics-book/static/js/runtime-main.fdaa2f7e.js",
     "runtime-main.js.map": "/comics-book/static/js/runtime-main.fdaa2f7e.js.map",
-    "static/js/2.75626604.chunk.js": "/comics-book/static/js/2.75626604.chunk.js",
-    "static/js/2.75626604.chunk.js.map": "/comics-book/static/js/2.75626604.chunk.js.map",
+    "static/js/2.5cf7cfa2.chunk.js": "/comics-book/static/js/2.5cf7cfa2.chunk.js",
+    "static/js/2.5cf7cfa2.chunk.js.map": "/comics-book/static/js/2.5cf7cfa2.chunk.js.map",
     "index.html": "/comics-book/index.html",
-    "static/css/main.e58ecdc0.chunk.css.map": "/comics-book/static/css/main.e58ecdc0.chunk.css.map",
-    "static/js/2.75626604.chunk.js.LICENSE.txt": "/comics-book/static/js/2.75626604.chunk.js.LICENSE.txt",
+    "static/css/main.157e4310.chunk.css.map": "/comics-book/static/css/main.157e4310.chunk.css.map",
+    "static/js/2.5cf7cfa2.chunk.js.LICENSE.txt": "/comics-book/static/js/2.5cf7cfa2.chunk.js.LICENSE.txt",
     "static/media/back.3f83d067.svg": "/comics-book/static/media/back.3f83d067.svg",
     "static/media/button-picture.7e1048a6.svg": "/comics-book/static/media/button-picture.7e1048a6.svg",
     "static/media/close-icon.51d90ac8.svg": "/comics-book/static/media/close-icon.51d90ac8.svg",
@@ -29,12 +29,13 @@
     "static/media/send-disabled-icon.53fba88d.svg": "/comics-book/static/media/send-disabled-icon.53fba88d.svg",
     "static/media/send-icon.2dc21fc0.svg": "/comics-book/static/media/send-icon.2dc21fc0.svg",
     "static/media/trash-icon.66b5ea88.svg": "/comics-book/static/media/trash-icon.66b5ea88.svg",
+    "static/media/typing-spinner.b98a8c76.svg": "/comics-book/static/media/typing-spinner.b98a8c76.svg",
     "static/media/update-icon.82e7731f.svg": "/comics-book/static/media/update-icon.82e7731f.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.fdaa2f7e.js",
-    "static/js/2.75626604.chunk.js",
-    "static/css/main.e58ecdc0.chunk.css",
-    "static/js/main.5f98f967.chunk.js"
+    "static/js/2.5cf7cfa2.chunk.js",
+    "static/css/main.157e4310.chunk.css",
+    "static/js/main.7b4d8a03.chunk.js"
   ]
 }

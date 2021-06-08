@@ -1,0 +1,22 @@
+.ChatMessagesTypings {
+  border-top: 1px solid #cccccc6b;
+  color: #cccccc;
+  display: flex;
+  font-size: 12px;
+  margin-top: 15px;
+  padding: 5px 0 0;
+
+  &__profile {
+    font-weight: 600;
+  }
+
+  &__description {
+    margin: 0 5px;
+  }
+
+  &__spinner {
+    position: relative;
+    top: 4px;
+    width: 14px;
+  }
+}

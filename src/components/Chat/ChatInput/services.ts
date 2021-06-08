@@ -1,4 +1,4 @@
-import { TTyping } from '../../../store/channels/types';
+import { TTyping } from '../../../store/typings/types';
 
 export const getPreparedContent = (content: string) =>
   content.replaceAll(

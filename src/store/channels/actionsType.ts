@@ -12,6 +12,4 @@ export enum ChannelsActionsType {
   sendMessageSuccess = `${REDUCER_KEY}/sendMessageSuccess`,
   sendMessageError = `${REDUCER_KEY}/sendMessageError`,
   setChannelId = `${REDUCER_KEY}/setChannelId`,
-  setStatusTyping = `${REDUCER_KEY}/setStatusTyping`,
-  setStatusTypingError = `${REDUCER_KEY}/setStatusTypingError`,
 }

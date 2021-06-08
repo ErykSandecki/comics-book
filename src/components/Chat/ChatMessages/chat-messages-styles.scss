@@ -37,7 +37,7 @@ $calculatedHeight: calc(100% - 60px);
     display: flex;
     margin-bottom: 50px;
 
-    &:last-child {
+    &--last {
       margin-bottom: 0;
     }
   }

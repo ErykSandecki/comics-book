@@ -45,7 +45,7 @@ const ChatInput: ForwardRefExoticComponent<
       profileId,
     }: TProfile = useSelector(getAttributesFromSelectedProfile);
     const inputText = inputRef.current?.innerText.trim() || '';
-    const turnOnTyping = useTyping(profileId, profileName);
+    const showTyping = useTyping(profileId, profileName);
 
     const onBlurHandler = (): void => {
       if (!inputText) {
@@ -56,7 +56,7 @@ const ChatInput: ForwardRefExoticComponent<
     const onInputHandler = (event: Event): void => {
       const { target } = event;
 
-      turnOnTyping();
+      showTyping();
       setContent(target.innerHTML);
       updateHeightMessages();
     };

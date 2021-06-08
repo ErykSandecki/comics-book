@@ -22,7 +22,7 @@ const useSubscribesDisconnectHandlers = (
       .onDisconnect()
       .set(false);
 
-  const subscribeTypings = () =>
+  const subscribeTypings = () => null;
     getRefDatabase([DatabaseColumns.typings])
       .onDisconnect()
       .set(getTypingsWithRemovedItem(typings, selectedProfileId));

@@ -17,33 +17,47 @@ const useTyping = (profileId: string, profileName: string) => {
   };
 
   // eslint-disable-next-line
-  const turnOffTyping = useCallback(
+  const hideTyping = useCallback(
     debounce(() => {
       setIsTyping(false);
-      dispatch(setStatusTyping({ ...payload, mode: 'remove' }));
+      dispatch(
+        setStatusTyping({
+          ...payload,
+          mode: 'remove',
+          time: -1
+          
+        })
+      );
     }, 1000),
     []
   );
 
-  const turnOnTyping = () => {
+  const showTyping = () => {
     if (!isTyping) {
       setIsTyping(true);
       dispatch(
         setStatusTyping({
           ...payload,
           mode: 'add',
+          time: new Date().getTime(),
         })
       );
     }
-    turnOffTyping();
+    hideTyping();
   };
 
   useEffect(() => {
-    dispatch(setStatusTyping({ ...payload, mode: 'remove' }));
+    dispatch(
+      setStatusTyping({
+        ...payload,
+        mode: 'remove',
+        time: -1,
+      })
+    );
     // eslint-disable-next-line
   }, []);
 
-  return turnOnTyping;
+  return showTyping;
 };
 
 export default useTyping;

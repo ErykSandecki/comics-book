@@ -10,6 +10,7 @@ export type TTyping = {
   channelId: string;
   profileName: string;
   profileId: string;
+  time: number;
 };
 
 export type TFetchTypingsSuccess = {

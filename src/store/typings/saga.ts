@@ -16,14 +16,14 @@ import { setStatusTypingError } from './actions';
 export function* setStatusTyping({
   payload,
 }: TTyping & { mode: 'add' | 'remove' }): Generator<PutEffect<any>> {
-  const { channelId, mode, profileId, profileName } = payload;
+  const { channelId, mode, profileId, profileName, time } = payload;
   const typings: Array<TChannel> =
     (yield select(getAttributeFromTypings('typings'))) || [];
 
   try {
     yield getRefDatabase([DatabaseColumns.typings]).set(
       mode === 'add'
-        ? [...typings, { channelId, profileId, profileName }]
+        ? [...typings, { channelId, profileId, profileName, time }]
         : getTypingsWithRemovedItem(typings, profileId)
     );
   } catch (error) {

@@ -3,12 +3,11 @@ import { delay, PutEffect, put, select } from 'redux-saga/effects';
 
 // others
 import { DatabaseColumns } from '../../components/Firebase/enums';
-import { TChannel, TTyping } from './types';
+import { TChannel } from './types';
 
 // services
 import generateId from '../../components/Firebase/services/generateId';
 import getRefDatabase from '../../components/Firebase/services/getRefDatabase';
-import { getTypingsWithRemovedItem } from '../../components/Chat/ChatInput/services';
 
 // store
 import {
@@ -16,7 +15,6 @@ import {
   createChannelError,
   sendMessageSuccess,
   sendMessageError,
-  setStatusTypingError,
 } from './actions';
 import {
   getAttributeFromChannels,
@@ -62,36 +60,5 @@ export function* sendMessage({ payload }): Generator<PutEffect<any>> {
     yield put(sendMessageSuccess());
   } catch (error) {
     yield put(sendMessageError(error));
-  }
-}
-
-export function* setStatusTyping({
-  payload,
-}: TTyping & { mode: 'add' | 'remove' }): Generator<PutEffect<any>> {
-  const { mode, profileId, profileName } = payload;
-  const channels: Array<TChannel> = yield select(
-    getAttributeFromChannels('channels')
-  );
-  const typings: Array<TTyping> =
-    (yield select(getAttributeFromSelectedChannel('typings'))) || [];
-  const selectedChannelId = yield select(
-    getAttributeFromChannels('selectedChannelId')
-  );
-  const indexOfChannel = channels.findIndex(
-    ({ channelId }) => channelId === selectedChannelId
-  );
-
-  try {
-    yield getRefDatabase([
-      DatabaseColumns.channels,
-      indexOfChannel,
-      'typings',
-    ]).set(
-      mode === 'add'
-        ? [...typings, { profileId, profileName }]
-        : getTypingsWithRemovedItem(typings, profileId)
-    );
-  } catch (error) {
-    yield put(setStatusTypingError(error));
   }
 }

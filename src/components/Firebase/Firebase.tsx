@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { FunctionComponent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import firebase from 'firebase';
@@ -8,6 +7,7 @@ import { config } from './constants';
 import { DatabaseColumns } from './enums';
 import { TChannel } from '../../store/channels/types';
 import { TProfile } from '../../store/profiles/types';
+import { TTyping } from '../../store/typings/types';
 
 // store
 import { isAuthenticatedSelector } from '../../store/selectors';
@@ -34,7 +34,7 @@ const Firebase: FunctionComponent<{}> = () => {
     const channelsActions = (payload: Array<TChannel>): void => {
       dispatch(fetchChannelsSuccess(payload));
     };
-    const typingsActions = (payload: Array<TChannel>): void => {
+    const typingsActions = (payload: Array<TTyping>): void => {
       dispatch(fetchTypingsSuccess(payload));
     };
 

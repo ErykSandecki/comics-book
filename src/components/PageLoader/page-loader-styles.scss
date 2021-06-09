@@ -82,6 +82,7 @@
   &__spinner {
     align-items: center;
     display: none;
+    flex-direction: column;
     justify-content: center;
     height: 100%;
     width: 100%;
@@ -89,5 +90,10 @@
     &--show {
       display: flex;
     }
+  }
+
+  &__prompt {
+    color: #cccccc;
+    margin-top: 25px;
   }
 }

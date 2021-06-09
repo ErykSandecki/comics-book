@@ -37,6 +37,7 @@ const PageLoader: FunctionComponent = () => {
         }`}
       >
         <Spinner />
+        <p className="PageLoader__prompt">Loading...</p>
       </div>
     </div>
   );

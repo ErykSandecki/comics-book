@@ -1,5 +1,4 @@
 export const UPDATE_DETAILS = [
-  'Parsing links embedded in messages',
-  'When you click on a link a new tab opens',
+  'Parsing links fixed',
 ];
-export const CURRENT_VERSION = '1.1.0';
+export const CURRENT_VERSION = '1.1.1';

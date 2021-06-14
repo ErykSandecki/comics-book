@@ -7,7 +7,8 @@ export const getPreparedContent = (content: string) =>
   );
 
 export const urlifyContent = (content: string): string => {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  // eslint-disable-next-line 
+  const urlRegex = /(https?:\/\/[^\s][A-Za-z\/\s\.'-]+)/g;
   return content.replaceAll(
     urlRegex,
     (url) => '<a href="' + url + '" target="_blank">' + url + '</a>'

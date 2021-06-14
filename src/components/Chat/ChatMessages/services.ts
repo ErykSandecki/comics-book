@@ -23,7 +23,7 @@ export const getDate = (time: number): string => {
   );
 
   if (diffrentDays === 0) {
-    return getFormatedTime(new Date());
+    return getFormatedTime(new Date(time));
   }
 
   return diffrentDays < DAYS_MEANINGS.length

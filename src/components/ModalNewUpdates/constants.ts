@@ -1,5 +1,4 @@
 export const UPDATE_DETAILS = [
-  'Parsing links fixed',
-  `The message time of a user's current day was incorrectly displayed.`
+  'Support for color text form Telegram',
 ];
-export const CURRENT_VERSION = '1.1.1';
+export const CURRENT_VERSION = '1.2.0';

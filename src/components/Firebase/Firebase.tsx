@@ -43,7 +43,7 @@ const Firebase: FunctionComponent<{}> = () => {
         databaseHandler(firebase, profilesActions, DatabaseColumns.profiles);
         databaseHandler(firebase, channelsActions, DatabaseColumns.channels);
         databaseHandler(firebase, typingsActions, DatabaseColumns.typings);
-      }, 8000);
+      }, 3000);
     }
     // eslint-disable-next-line
   }, [isAuthenticated]);

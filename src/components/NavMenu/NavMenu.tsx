@@ -11,6 +11,9 @@ import CloseWhiteIcon from '../../assets/images/icons/close-white-icon.svg';
 // store
 import { getAttributesFromSelectedProfile } from '../../store/profiles/selectors';
 
+// services
+import getMobileBrowserName from '../../services/getMobileBrowserName';
+
 // styles
 import './nav-menu-styles.scss';
 
@@ -22,6 +25,7 @@ type TProps = {
 const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
   const onClickHandler = (): void => setVisible(false);
   const { name, src } = useSelector(getAttributesFromSelectedProfile);
+  const MobileBrowserName = getMobileBrowserName();
 
   return (
     <div
@@ -61,7 +65,11 @@ const NavMenu: FunctionComponent<TProps> = ({ visible, setVisible }) => {
         </div>
 
         {/* CONTENT */}
-        <div className="NavMenu__content">
+        <div
+          className={`NavMenu__content ${
+            MobileBrowserName && `NavMenu__content-mobile--${MobileBrowserName}`
+          }`}
+        >
           <NavMenuChannels closeNavMenu={onClickHandler} />
           <NavMenuProfiles />
         </div>

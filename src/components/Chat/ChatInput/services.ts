@@ -7,7 +7,7 @@ export const getPreparedContent = (content: string) =>
   );
 
 export const urlifyContent = (content: string): string => {
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const urlRegex = /(https?:\/\/[^\s][A-Za-z0-9\/\s\.'-]+)/g;
   return content.replaceAll(
     urlRegex,
